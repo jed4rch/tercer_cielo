@@ -1,257 +1,58 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <title>Documentación de Tests - Tercer Cielo</title>
+        <title>Test Documentation</title>
         <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
             body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: #f5f7fa;
-                color: #333;
-                padding: 40px 20px;
-                line-height: 1.6;
+                text-rendering: optimizeLegibility;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2rem;
+                background-color: #fff;
+                color: #000;
             }
 
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-
-            .header {
-                background: white;
-                border-radius: 20px;
-                padding: 40px;
-                margin-bottom: 40px;
-                box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-                text-align: center;
-            }
-
-            .header h1 {
-                font-size: 2.5em;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                margin-bottom: 10px;
-            }
-
-            .subtitle {
-                color: #666;
-                font-size: 1.1em;
-            }
-
-            .stats {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-                margin-bottom: 40px;
-            }
-
-            .stat-card {
-                background: white;
-                border-radius: 15px;
-                padding: 25px;
-                text-align: center;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-                transition: all 0.3s ease;
-            }
-
-            .stat-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            }
-
-            .stat-number {
-                font-size: 2.5em;
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-
-            .stat-label {
-                color: #666;
-                font-weight: 500;
-            }
-
-            .stat-card.success .stat-number {
-                color: #4CAF50;
-            }
-
-            .stat-card.warning .stat-number {
-                color: #FF9800;
-            }
-
-            .stat-card.info .stat-number {
-                color: #2196F3;
-            }
-
-            .test-suite {
-                background: white;
-                border-radius: 20px;
-                padding: 35px;
-                margin-bottom: 30px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-                transition: all 0.3s ease;
-            }
-
-            .test-suite:hover {
-                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            body > ul > li {
+                font-family: Source Serif Pro, PT Sans, Trebuchet MS, Helvetica, Arial;
+                font-size: larger;
             }
 
             h2 {
-                font-size: 1.8em;
-                color: #333;
-                margin-bottom: 25px;
-                padding-bottom: 15px;
-                border-bottom: 3px solid;
-                border-image: linear-gradient(90deg, #667eea 0%, #764ba2 100%) 1;
-                display: flex;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .suite-icon {
-                font-size: 1.2em;
+                font-family: Tahoma, Helvetica, Arial;
+                font-size: larger;
+                margin: 0;
+                padding: 0.5rem 0;
             }
 
             ul {
                 list-style: none;
-                padding: 0;
                 margin: 0;
-            }
-
-            li {
-                padding: 15px 20px;
-                margin: 8px 0;
-                border-radius: 10px;
-                transition: all 0.3s ease;
-                font-size: 1.05em;
-                display: flex;
-                align-items: center;
-                gap: 15px;
-            }
-
-            li:hover {
-                transform: translateX(10px);
-                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            }
-
-            .success {
-                background: #E8F5E9;
-                border-left: 4px solid #4CAF50;
+                padding: 0;
+                margin-bottom: 2rem;
+                padding-left: 1rem;
+                text-indent: -1rem;
             }
 
             .success:before {
+                color: #4e9a06;
                 content: '✓';
-                color: #2E7D32;
-                font-weight: bold;
-                font-size: 1.3em;
-                width: 30px;
-                height: 30px;
-                background: #4CAF50;
-                color: white;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
+                padding-right: 0.5rem;
             }
 
             .defect {
-                background: #FFF3E0;
-                border-left: 4px solid #FF9800;
+                color: #a40000;
             }
 
             .defect:before {
-                content: '⚠';
-                color: white;
-                font-weight: bold;
-                font-size: 1.3em;
-                width: 30px;
-                height: 30px;
-                background: #FF9800;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
+                color: #a40000;
+                content: '✗';
+                padding-right: 0.5rem;
             }
-
-            .footer {
-                background: white;
-                border-radius: 15px;
-                padding: 30px;
-                text-align: center;
-                margin-top: 40px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-                color: #666;
-            }
-
-            .footer p {
-                margin: 8px 0;
-            }
-
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .test-suite {
-                animation: fadeInUp 0.6s ease forwards;
-            }
-
-            .test-suite:nth-child(1) { animation-delay: 0.1s; }
-            .test-suite:nth-child(2) { animation-delay: 0.2s; }
-            .test-suite:nth-child(3) { animation-delay: 0.3s; }
-            .test-suite:nth-child(4) { animation-delay: 0.4s; }
-            .test-suite:nth-child(5) { animation-delay: 0.5s; }
-            .test-suite:nth-child(6) { animation-delay: 0.6s; }
-            .test-suite:nth-child(7) { animation-delay: 0.7s; }
-            .test-suite:nth-child(8) { animation-delay: 0.8s; }
-            .test-suite:nth-child(9) { animation-delay: 0.9s; }
-            .test-suite:nth-child(10) { animation-delay: 1s; }
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="header">
-                <h1>📋 Documentación de Tests</h1>
-                <p class="subtitle">Proyecto: Ferretería Tercer Cielo E-commerce</p>
-                <p class="subtitle">Suite Completa de Pruebas Unitarias</p>
-            </div>
-
-            <div class="stats">
-                <div class="stat-card success">
-                    <div class="stat-number">89</div>
-                    <div class="stat-label">Tests Totales</div>
-                </div>
-                <div class="stat-card success">
-                    <div class="stat-number">77</div>
-                    <div class="stat-label">Exitosos</div>
-                </div>
-                <div class="stat-card warning">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">Risky</div>
-                </div>
-                <div class="stat-card info">
-                    <div class="stat-number">10</div>
-                    <div class="stat-label">Suites</div>
-                </div>
-            </div>
-
-        <div class="test-suite">
-        <h2><span class="suite-icon">👨‍💼</span>Admin</h2>
+        <h2>Admin</h2>
         <ul>
             <li class="success">Get estadisticas admin</li>
             <li class="success">Get pedidos admin sin filtros</li>
@@ -266,9 +67,7 @@
             <li class="success">Get contadores pedidos</li>
             <li class="success">Estadisticas consistentes</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">🎯</span>Banners</h2>
+        <h2>Banners</h2>
         <ul>
             <li class="success">Obtener todos banners</li>
             <li class="success">Obtener solo banners habilitados</li>
@@ -283,27 +82,23 @@
             <li class="success">Obtener categorias para banner</li>
             <li class="success">Obtener url enlace banner</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">📄</span>Boleta</h2>
+        <h2>Boleta</h2>
         <ul>
-            <li class="defect">Funcion generar boleta existe</li>
-            <li class="defect">T c p d f disponible</li>
+            <li class="success">Funcion generar boleta existe</li>
+            <li class="success">T c p d f disponible</li>
             <li class="success">Generar boleta pedido inexistente</li>
-            <li class="defect">Generar boleta pedido valido</li>
-            <li class="defect">Directorio boletas existe</li>
-            <li class="defect">Estructura pedido para boleta</li>
-            <li class="defect">Pedido tiene detalles</li>
-            <li class="defect">Formato codigo pedido</li>
-            <li class="defect">Calcular total pedido</li>
-            <li class="defect">Formatear precio</li>
-            <li class="defect">Longitud nombre archivo p d f</li>
-            <li class="defect">Permisos directorio uploads</li>
-            <li class="defect">Escritura en directorio boletas</li>
+            <li class="success">Generar boleta pedido valido</li>
+            <li class="success">Directorio boletas existe</li>
+            <li class="success">Estructura pedido para boleta</li>
+            <li class="success">Pedido tiene detalles</li>
+            <li class="success">Formato codigo pedido</li>
+            <li class="success">Calcular total pedido</li>
+            <li class="success">Formatear precio</li>
+            <li class="success">Longitud nombre archivo p d f</li>
+            <li class="success">Permisos directorio uploads</li>
+            <li class="success">Escritura en directorio boletas</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">🛒</span>Carrito</h2>
+        <h2>Carrito</h2>
         <ul>
             <li class="success">Agregar producto al carrito</li>
             <li class="success">Agregar multiples productos</li>
@@ -315,9 +110,7 @@
             <li class="success">Contar items carrito vacio</li>
             <li class="success">Get carrito sin sesion</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">📧</span>Correo</h2>
+        <h2>Correo</h2>
         <ul>
             <li class="success">Funcion enviar correo existe</li>
             <li class="success">Parametros basicos</li>
@@ -333,9 +126,7 @@
             <li class="success">Escapar caracteres h t m l</li>
             <li class="success">Longitud asunto</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">🖼️</span>Imagenes</h2>
+        <h2>Imagenes</h2>
         <ul>
             <li class="success">Validar imagen sin archivo</li>
             <li class="success">Validar imagen con error carga</li>
@@ -347,9 +138,7 @@
             <li class="success">Tipos archivo permitidos</li>
             <li class="success">Limite tamaño</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">📦</span>Inventario</h2>
+        <h2>Inventario</h2>
         <ul>
             <li class="success">Registrar movimiento entrada</li>
             <li class="success">Registrar movimiento salida</li>
@@ -360,26 +149,20 @@
             <li class="success">Movimiento se registra en tabla</li>
             <li class="success">Movimiento con pdo externo</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">📋</span>Pedido</h2>
+        <h2>Pedido</h2>
         <ul>
             <li class="success">Crear pedido exitoso</li>
             <li class="success">Crear pedido carrito vacio</li>
             <li class="success">Actualizar estado pedido</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">🏷️</span>Producto</h2>
+        <h2>Producto</h2>
         <ul>
             <li class="success">Agregar producto</li>
             <li class="success">Actualizar producto</li>
             <li class="success">Eliminar producto</li>
             <li class="success">Busqueda productos</li>
         </ul>
-        </div>
-        <div class="test-suite">
-        <h2><span class="suite-icon">👤</span>Usuario</h2>
+        <h2>Usuario</h2>
         <ul>
             <li class="success">Registro exitoso</li>
             <li class="success">Registro email duplicado</li>
@@ -388,13 +171,5 @@
             <li class="success">Login exitoso</li>
             <li class="success">Actualizar usuario</li>
         </ul>
-        </div>
-
-        <div class="footer">
-            <p><strong>© 2025 Tercer Cielo E-commerce</strong></p>
-            <p>PHPUnit 10.0.0 | PHP 8.2.12 | Xdebug 3.4.6</p>
-            <p>Documentación Generada Automáticamente</p>
-        </div>
-        </div>
     </body>
 </html>
