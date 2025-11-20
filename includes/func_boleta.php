@@ -36,6 +36,7 @@ function generar_boleta_pdf($pedido_id) {
         @error_log(date('Y-m-d H:i:s') . " | func_boleta.php | Pedido consultado\n", 3, $logfile);
         if (!$pedido) {
             @error_log(date('Y-m-d H:i:s') . " | func_boleta.php | Pedido no encontrado\n", 3, $logfile);
+            ob_end_clean(); // Limpiar buffer antes de retornar
             return false;
         }
         // Obtener detalles del pedido
@@ -317,6 +318,7 @@ function generar_boleta_pdf($pedido_id) {
         if (!is_dir($dir)) {
             if (!mkdir($dir, 0755, true)) {
                 @error_log(date('Y-m-d H:i:s') . " | func_boleta.php | No se pudo crear directorio $dir\n", 3, $logfile);
+                ob_end_clean(); // Limpiar buffer antes de retornar
                 return false;
             }
         }
