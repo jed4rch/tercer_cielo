@@ -730,7 +730,6 @@ function ordenarTabla(columna) {
         // Mapeo de colores por estado
         const coloresPorEstado = {
             'pendiente': '#ffc107',
-            'pendiente_pago': '#fd7e14',
             'aprobado': '#0dcaf0',
             'rechazado': '#dc3545',
             'enviado': '#0d6efd',
@@ -744,8 +743,15 @@ function ordenarTabla(columna) {
             type: 'doughnut',
             data: {
                 labels: estadosOrdenados.map(estado => {
-                    // Capitalizar primera letra
-                    return estado.charAt(0).toUpperCase() + estado.slice(1).replace('_', ' ');
+                    // Convertir estado a texto legible
+                    const estadosTexto = {
+                        'pendiente': 'Pendiente',
+                        'aprobado': 'Aprobado',
+                        'rechazado': 'Rechazado',
+                        'enviado': 'Enviado',
+                        'entregado': 'Entregado'
+                    };
+                    return estadosTexto[estado] || estado.charAt(0).toUpperCase() + estado.slice(1);
                 }),
                 datasets: [{
                     data: Object.values(conteoEstados),

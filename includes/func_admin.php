@@ -39,9 +39,9 @@ function get_pedidos_admin($estado = null, $search = '', $orderby = '') {
     $where = [];
     
     if ($estado) {
-        // Si el filtro es "pendiente", incluir ambos estados: pendiente y pendiente_pago
+        // Filtrar por estado pendiente
         if ($estado === 'pendiente') {
-            $where[] = "p.estado IN ('pendiente', 'pendiente_pago')";
+            $where[] = "p.estado = 'pendiente'";
         } else {
             $where[] = "p.estado = ?";
             $params[] = $estado;
@@ -698,9 +698,9 @@ function get_contadores_pedidos() {
     $contadores = [];
     
     foreach ($estados as $estado) {
-        // Para pendiente, incluir también pendiente_pago
+        // Contar pedidos pendientes
         if ($estado === 'pendiente') {
-            $stmt = $pdo->prepare("SELECT COUNT(*) FROM pedidos WHERE estado IN ('pendiente', 'pendiente_pago')");
+            $stmt = $pdo->prepare("SELECT COUNT(*) FROM pedidos WHERE estado = 'pendiente'");
             $stmt->execute();
         } else {
             $stmt = $pdo->prepare("SELECT COUNT(*) FROM pedidos WHERE estado = ?");

@@ -148,7 +148,7 @@ if ($_POST) {
                     $direccion_final,
                     $telefono,
                     $comprobante_path,
-                    'pendiente_pago',
+                    'pendiente',
                     $envio_seleccionado['precio']
                 ]);
                 $pedido_id = $pdo->lastInsertId();

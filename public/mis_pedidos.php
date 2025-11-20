@@ -21,7 +21,7 @@ $pdo = getPdo();
 $stmt = $pdo->prepare("
     SELECT 
            p.*,
-           COALESCE(p.estado, 'pendiente_pago') as estado,
+           COALESCE(p.estado, 'pendiente') as estado,
            COALESCE(
                CASE UPPER(p.metodo_pago)
                    WHEN 'YAPE' THEN 'Yape'

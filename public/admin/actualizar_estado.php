@@ -53,7 +53,7 @@ try {
 
     // Determinar el estado anterior
     $estado_anterior = !empty($pedido['estado']) ? $pedido['estado'] : 'pendiente';
-    if ($estado_anterior === 'pendiente_pago') {
+    if ($estado_anterior === 'pendiente') {
         $estado_anterior = 'pendiente';
     }
 
