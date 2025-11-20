@@ -185,11 +185,26 @@ $contadores_pedidos = get_contadores_pedidos();
             font-size: 2rem;
             font-weight: 700;
             margin: 0;
+            word-wrap: break-word;
+            line-height: 1.2;
+        }
+        
+        /* Ajuste específico para montos monetarios */
+        .stat-content h2.money-stat {
+            font-size: 1.5rem;
+            white-space: nowrap;
+            overflow: visible;
+        }
+        
+        .stat-content {
+            flex: 1;
+            min-width: 0;
         }
 
         .stat-icon {
             font-size: 3rem;
             opacity: 0.3;
+            flex-shrink: 0;
         }
 
         /* Chart Cards */
@@ -371,7 +386,7 @@ $contadores_pedidos = get_contadores_pedidos();
                         <div class="card-body">
                             <div class="stat-content">
                                 <h5>VENTAS TOTAL</h5>
-                                <h2>S/ <?= number_format($stats['ventas'], 2) ?></h2>
+                                <h2 class="money-stat">S/ <?= number_format($stats['ventas'], 2) ?></h2>
                             </div>
                             <i class="bi bi-currency-dollar stat-icon"></i>
                         </div>

@@ -60,8 +60,23 @@ if ($_POST) {
     }
 
     if (!isset($error)) {
-        $stmt = $pdo->prepare("UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, precio_anterior = ?, porcentaje_descuento = ?, stock = ?, id_categoria = ?, imagen = ? WHERE id = ?");
-        if ($stmt->execute([$nombre, $descripcion, $precio, $precio_anterior, $porcentaje_descuento, $stock, $categoria, $imagen, $id])) {
+        // Verificar si la categoría nueva está habilitada
+        $stmt = $pdo->prepare("SELECT habilitado FROM categorias WHERE id = ?");
+        $stmt->execute([$categoria]);
+        $cat_info = $stmt->fetch();
+        
+        // Determinar el estado del producto según la categoría
+        $producto_habilitado = ($cat_info && $cat_info['habilitado'] == 1) ? 1 : 0;
+        
+        $stmt = $pdo->prepare("UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, precio_anterior = ?, porcentaje_descuento = ?, stock = ?, id_categoria = ?, imagen = ?, habilitado = ? WHERE id = ?");
+        if ($stmt->execute([$nombre, $descripcion, $precio, $precio_anterior, $porcentaje_descuento, $stock, $categoria, $imagen, $producto_habilitado, $id])) {
+            
+            // Si el producto se inhabilitó por categoría inactiva, inhabilitar sus banners
+            if ($producto_habilitado == 0) {
+                $stmt = $pdo->prepare("UPDATE banners SET habilitado = 0 WHERE tipo_enlace = 'producto' AND enlace_id = ?");
+                $stmt->execute([$id]);
+            }
+            
             header('Location: productos.php?success=editado');
             exit;
         } else {
@@ -80,7 +95,7 @@ if (!$producto) {
 }
 
 // === CATEGORÍAS ===
-$categorias = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre")->fetchAll();
+$categorias = $pdo->query("SELECT id, nombre, habilitado FROM categorias ORDER BY nombre")->fetchAll();
 
 $pageTitle = 'Editar Producto';
 include 'layout_header.php';
@@ -176,7 +191,10 @@ include 'layout_header.php';
                 <select name="categoria" class="form-control" required>
                     <option value="">Seleccionar</option>
                     <?php foreach ($categorias as $c): ?>
-                        <option value="<?= $c['id'] ?>" <?= $producto['id_categoria'] == $c['id'] ? 'selected' : '' ?>><?= htmlspecialchars($c['nombre']) ?></option>
+                        <option value="<?= $c['id'] ?>" <?= $producto['id_categoria'] == $c['id'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($c['nombre']) ?>
+                            <?= $c['habilitado'] == 0 ? ' (Inactivo)' : '' ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
             </div>

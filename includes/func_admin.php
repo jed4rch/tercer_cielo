@@ -118,34 +118,47 @@ function generar_reporte_ventas($fecha_inicio, $fecha_fin) {
     // Estadísticas generales
     $estadisticas = [];
     
-    $stmt = $pdo->prepare("
+    // Si no hay fechas, mostrar todos los datos
+    $whereFecha = '';
+    $params = [];
+    if ($fecha_inicio && $fecha_fin) {
+        $whereFecha = "AND DATE(creado_en) BETWEEN ? AND ?";
+        $params = [$fecha_inicio, $fecha_fin];
+    }
+    
+    $sql = "
         SELECT COALESCE(SUM(total), 0)
         FROM pedidos
         WHERE estado = 'entregado'
-        AND DATE(creado_en) BETWEEN ? AND ?
-    ");
-    $stmt->execute([$fecha_inicio, $fecha_fin]);
+        $whereFecha
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     $estadisticas['total_ventas'] = $stmt->fetchColumn() ?: 0;
     
-    $stmt = $pdo->prepare("
+    $whereFechaSimple = $fecha_inicio && $fecha_fin ? "WHERE DATE(creado_en) BETWEEN ? AND ?" : "";
+    
+    $sql = "
         SELECT COUNT(*)
         FROM pedidos
-        WHERE DATE(creado_en) BETWEEN ? AND ?
-    ");
-    $stmt->execute([$fecha_inicio, $fecha_fin]);
+        $whereFechaSimple
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     $estadisticas['total_pedidos'] = $stmt->fetchColumn() ?: 0;
     
-    $stmt = $pdo->prepare("
+    $sql = "
         SELECT COUNT(*)
         FROM pedidos
         WHERE estado = 'entregado'
-        AND DATE(creado_en) BETWEEN ? AND ?
-    ");
-    $stmt->execute([$fecha_inicio, $fecha_fin]);
+        $whereFecha
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     $estadisticas['pedidos_entregados'] = $stmt->fetchColumn() ?: 0;
 
     // Datos detallados - Solo pedidos entregados para gráficos
-    $stmt = $pdo->prepare("
+    $sql = "
         SELECT
             p.codigo,
             u.nombre as cliente,
@@ -157,16 +170,17 @@ function generar_reporte_ventas($fecha_inicio, $fecha_fin) {
         FROM pedidos p
         JOIN usuarios u ON p.usuario_id = u.id
         LEFT JOIN pedido_detalles pd ON p.id = pd.pedido_id
-        WHERE DATE(p.creado_en) BETWEEN ? AND ?
-        AND p.estado = 'entregado'
+        WHERE p.estado = 'entregado'
+        $whereFecha
         GROUP BY p.id
         ORDER BY p.creado_en DESC
-    ");
-    $stmt->execute([$fecha_inicio, $fecha_fin]);
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     // Datos de todos los pedidos para la tabla
-    $stmt = $pdo->prepare("
+    $sql = "
         SELECT
             p.codigo,
             u.nombre as cliente,
@@ -178,11 +192,12 @@ function generar_reporte_ventas($fecha_inicio, $fecha_fin) {
         FROM pedidos p
         JOIN usuarios u ON p.usuario_id = u.id
         LEFT JOIN pedido_detalles pd ON p.id = pd.pedido_id
-        WHERE DATE(p.creado_en) BETWEEN ? AND ?
+        $whereFechaSimple
         GROUP BY p.id
         ORDER BY p.creado_en DESC
-    ");
-    $stmt->execute([$fecha_inicio, $fecha_fin]);
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     $datos_tabla = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     return [
@@ -288,7 +303,15 @@ function generar_reporte_clientes() {
 function generar_reporte_productos_mas_vendidos($fecha_inicio, $fecha_fin) {
     $pdo = getPdo();
     
-    $stmt = $pdo->prepare("
+    // Si no hay fechas, mostrar todos los datos
+    $whereFecha = '';
+    $params = [];
+    if ($fecha_inicio && $fecha_fin) {
+        $whereFecha = "AND DATE(ped.creado_en) BETWEEN ? AND ?";
+        $params = [$fecha_inicio, $fecha_fin];
+    }
+    
+    $sql = "
         SELECT
             p.nombre,
             c.nombre as categoria,
@@ -300,12 +323,13 @@ function generar_reporte_productos_mas_vendidos($fecha_inicio, $fecha_fin) {
         LEFT JOIN categorias c ON p.id_categoria = c.id
         JOIN pedidos ped ON pd.pedido_id = ped.id
         WHERE ped.estado = 'entregado'
-        AND DATE(ped.creado_en) BETWEEN ? AND ?
+        $whereFecha
         GROUP BY p.id, p.nombre, c.nombre
         ORDER BY total_vendido DESC
         LIMIT 20
-    ");
-    $stmt->execute([$fecha_inicio, $fecha_fin]);
+    ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Estadísticas

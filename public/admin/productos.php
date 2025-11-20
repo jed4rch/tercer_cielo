@@ -20,11 +20,33 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     if ($_GET['action'] === 'inhabilitar') {
         $stmt = $pdo->prepare("UPDATE productos SET habilitado = 0 WHERE id = ?");
         $stmt->execute([$id]);
+        
+        // Inhabilitar banners enlazados a este producto
+        $stmt = $pdo->prepare("UPDATE banners SET habilitado = 0 WHERE tipo_enlace = 'producto' AND enlace_id = ?");
+        $stmt->execute([$id]);
+        
         header('Location: productos.php?success=inhabilitado');
         exit;
     } elseif ($_GET['action'] === 'habilitar') {
+        // Verificar si la categoría está habilitada
+        $stmt = $pdo->prepare("SELECT c.habilitado, c.nombre FROM productos p JOIN categorias c ON p.id_categoria = c.id WHERE p.id = ?");
+        $stmt->execute([$id]);
+        $resultado = $stmt->fetch();
+        
+        if ($resultado && $resultado['habilitado'] == 0) {
+            // La categoría está inhabilitada
+            header('Location: productos.php?error=categoria_inhabilitada&categoria=' . urlencode($resultado['nombre']));
+            exit;
+        }
+        
+        // Habilitar el producto
         $stmt = $pdo->prepare("UPDATE productos SET habilitado = 1 WHERE id = ?");
         $stmt->execute([$id]);
+        
+        // Habilitar banners enlazados a este producto
+        $stmt = $pdo->prepare("UPDATE banners SET habilitado = 1 WHERE tipo_enlace = 'producto' AND enlace_id = ?");
+        $stmt->execute([$id]);
+        
         header('Location: productos.php?success=habilitado');
         exit;
     }
@@ -88,6 +110,17 @@ include 'layout_header.php';
             if ($_GET['success'] == 'inhabilitado') echo '<i class="bi bi-check-circle me-2"></i>Producto inhabilitado correctamente. No se mostrará a los clientes.';
             if ($_GET['success'] == 'habilitado') echo '<i class="bi bi-check-circle me-2"></i>Producto habilitado correctamente. Ahora es visible para los clientes.';
             if ($_GET['success'] == 'eliminado') echo '<i class="bi bi-check-circle me-2"></i>Producto eliminado permanentemente.';
+            ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?>
+    
+    <?php if (isset($_GET['error'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php 
+            if ($_GET['error'] == 'categoria_inhabilitada') {
+                echo '<i class="bi bi-exclamation-triangle me-2"></i>No se puede habilitar este producto porque su categoría "' . htmlspecialchars($_GET['categoria'] ?? '') . '" está inhabilitada. Por favor, habilite primero la categoría o cambie el producto a otra categoría.';
+            }
             ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
@@ -264,11 +297,12 @@ include 'layout_header.php';
                     `<strong>¿Inhabilitar el producto "${nombre}"?</strong><br><br>` +
                     `<div style="text-align: left; display: inline-block;">` +
                     `Al inhabilitar este producto:<br>` +
-                    `• Ya NO aparecerá en el catálogo público<br>` +
+                    `• El producto NO aparecerá en el catálogo público<br>` +
                     `• Los clientes NO podrán comprarlo<br>` +
+                    `• <strong>Todos los banners</strong> enlazados a este producto se inhabilitarán automáticamente<br>` +
                     `• Se mantiene en la base de datos<br>` +
                     `• Puedes habilitarlo nuevamente cuando quieras<br><br>` +
-                    `<strong style="color: #856404;">💡 Recomendado para productos temporalmente sin stock o descatalogados.</strong>` +
+                    `<strong style="color: #856404;">⚠️ Los banners relacionados se desactivarán.</strong>` +
                     `</div>`,
                     'bi bi-eye-slash-fill',
                     '#ffc107',
@@ -287,10 +321,11 @@ include 'layout_header.php';
                     `<strong>¿Habilitar el producto "${nombre}"?</strong><br><br>` +
                     `<div style="text-align: left; display: inline-block;">` +
                     `Al habilitar este producto:<br>` +
-                    `• Aparecerá nuevamente en el catálogo público<br>` +
+                    `• El producto aparecerá en el catálogo público<br>` +
                     `• Los clientes podrán verlo y comprarlo<br>` +
+                    `• <strong>Todos los banners</strong> enlazados a este producto se habilitarán automáticamente<br>` +
                     `• Estará disponible en búsquedas<br><br>` +
-                    `<strong style="color: #28a745;">✓ El producto estará visible inmediatamente.</strong>` +
+                    `<strong style="color: #28a745;">✓ Todo se activará inmediatamente.</strong>` +
                     `</div>`,
                     'bi bi-eye-fill',
                     '#28a745',

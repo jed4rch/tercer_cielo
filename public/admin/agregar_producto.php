@@ -34,8 +34,16 @@ if ($_POST) {
     }
     
     if (!isset($error)) {
-        $stmt = $pdo->prepare("INSERT INTO productos (nombre, descripcion, precio, stock, id_categoria, imagen) VALUES (?, ?, ?, ?, ?, ?)");
-        if ($stmt->execute([$nombre, $descripcion, $precio, $stock, $categoria, $imagen])) {
+        // Verificar si la categoría está habilitada
+        $stmt = $pdo->prepare("SELECT habilitado FROM categorias WHERE id = ?");
+        $stmt->execute([$categoria]);
+        $cat_info = $stmt->fetch();
+        
+        // El producto se habilitará solo si la categoría está habilitada
+        $producto_habilitado = ($cat_info && $cat_info['habilitado'] == 1) ? 1 : 0;
+        
+        $stmt = $pdo->prepare("INSERT INTO productos (nombre, descripcion, precio, stock, id_categoria, imagen, habilitado) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        if ($stmt->execute([$nombre, $descripcion, $precio, $stock, $categoria, $imagen, $producto_habilitado])) {
             header('Location: productos.php?success=agregado');
             exit;
         } else {
@@ -45,7 +53,7 @@ if ($_POST) {
 }
 
 // === CATEGORÍAS ===
-$categorias = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre")->fetchAll();
+$categorias = $pdo->query("SELECT id, nombre, habilitado FROM categorias ORDER BY nombre")->fetchAll();
 
 $pageTitle = 'Agregar Producto';
 include 'layout_header.php';
@@ -80,7 +88,10 @@ include 'layout_header.php';
                 <select name="categoria" class="form-control" required>
                     <option value="">Seleccionar</option>
                     <?php foreach ($categorias as $c): ?>
-                        <option value="<?= $c['id'] ?>"><?= htmlspecialchars($c['nombre']) ?></option>
+                        <option value="<?= $c['id'] ?>">
+                            <?= htmlspecialchars($c['nombre']) ?>
+                            <?= $c['habilitado'] == 0 ? ' (Inactivo)' : '' ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
             </div>

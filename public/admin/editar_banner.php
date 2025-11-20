@@ -82,6 +82,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $datos_actualizacion['enlace_id'] = $enlace_id;
     
     if (empty($errores)) {
+        // Determinar automáticamente si debe estar habilitado según el nuevo enlace
+        $debe_estar_habilitado = 1; // Por defecto habilitado (para "ninguno")
+        
+        if ($tipo_enlace === 'producto' && $enlace_id) {
+            // Verificar estado del producto y su categoría
+            $pdo_temp = getPdo();
+            $stmt = $pdo_temp->prepare("SELECT p.habilitado as prod_hab, c.habilitado as cat_hab FROM productos p LEFT JOIN categorias c ON p.id_categoria = c.id WHERE p.id = ?");
+            $stmt->execute([$enlace_id]);
+            $prod_info = $stmt->fetch();
+            
+            if ($prod_info) {
+                // Si producto o su categoría están inactivos, banner debe estar inactivo
+                if ($prod_info['prod_hab'] == 0 || $prod_info['cat_hab'] == 0) {
+                    $debe_estar_habilitado = 0;
+                }
+            }
+        } elseif ($tipo_enlace === 'categoria' && $enlace_id) {
+            // Verificar estado de la categoría
+            $pdo_temp = getPdo();
+            $stmt = $pdo_temp->prepare("SELECT habilitado FROM categorias WHERE id = ?");
+            $stmt->execute([$enlace_id]);
+            $cat_info = $stmt->fetch();
+            
+            if ($cat_info) {
+                // Si categoría está inactiva, banner debe estar inactivo
+                if ($cat_info['habilitado'] == 0) {
+                    $debe_estar_habilitado = 0;
+                }
+            }
+        }
+        
+        // Aplicar el estado calculado automáticamente
+        $datos_actualizacion['habilitado'] = $debe_estar_habilitado;
+        
         $resultado = actualizarBanner($banner_id, $datos_actualizacion);
         
         if ($resultado) {
@@ -216,6 +250,7 @@ include 'layout_header.php';
                             <option value="<?= $producto['id'] ?>" 
                                 <?= $banner['enlace_id'] == $producto['id'] && $banner['tipo_enlace'] === 'producto' ? 'selected' : '' ?>>
                                 <?= htmlspecialchars($producto['nombre']) ?> - S/ <?= number_format($producto['precio'], 2) ?>
+                                <?= $producto['habilitado'] == 0 ? ' (Inactivo)' : '' ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
@@ -230,6 +265,7 @@ include 'layout_header.php';
                             <option value="<?= $categoria['id'] ?>"
                                 <?= $banner['enlace_id'] == $categoria['id'] && $banner['tipo_enlace'] === 'categoria' ? 'selected' : '' ?>>
                                 <?= htmlspecialchars($categoria['nombre']) ?>
+                                <?= $categoria['habilitado'] == 0 ? ' (Inactivo)' : '' ?>
                             </option>
                         <?php endforeach; ?>
                     </select>

@@ -20,8 +20,35 @@ $pdo = getPdo();
 $categorias = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre")->fetchAll();
 
 // Procesar filtros
-$fecha_inicio = $_GET['fecha_inicio'] ?? date('Y-m-01');
-$fecha_fin = $_GET['fecha_fin'] ?? date('Y-m-d');
+$filtro_rapido = $_GET['filtro_rapido'] ?? '';
+
+// Si hay filtro rápido, calcular las fechas automáticamente
+if ($filtro_rapido) {
+    $fecha_fin = date('Y-m-d');
+    switch ($filtro_rapido) {
+        case 'hoy':
+            $fecha_inicio = date('Y-m-d');
+            break;
+        case 'ayer':
+            $fecha_inicio = date('Y-m-d', strtotime('-1 day'));
+            $fecha_fin = date('Y-m-d', strtotime('-1 day'));
+            break;
+        case 'semana':
+            $fecha_inicio = date('Y-m-d', strtotime('-7 days'));
+            break;
+        case 'mes':
+            $fecha_inicio = date('Y-m-d', strtotime('-1 month'));
+            break;
+        case 'año':
+            $fecha_inicio = date('Y-m-d', strtotime('-1 year'));
+            break;
+    }
+} else {
+    // Personalizado: si vienen fechas en GET, usarlas; si no, mostrar todo (sin filtro)
+    $fecha_inicio = $_GET['fecha_inicio'] ?? '';
+    $fecha_fin = $_GET['fecha_fin'] ?? '';
+}
+
 $tipo_reporte = $_GET['tipo_reporte'] ?? 'ventas';
 $categoria_id = $_GET['categoria_id'] ?? '';
 
@@ -63,22 +90,173 @@ include 'layout_header.php';
 
 <style>
     @media print {
-        .no-print, .sidebar, .top-bar, .btn-group {
+        /* Ocultar elementos de navegación y controles */
+        .no-print, 
+        .sidebar, 
+        .top-bar, 
+        .btn, 
+        .btn-group, 
+        .dropdown, 
+        form button, 
+        form select,
+        form input,
+        form label,
+        form,
+        .navbar {
             display: none !important;
         }
+        
+        /* Layout general para impresión */
         body {
             margin: 0;
             padding: 20px;
+            background: white !important;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #000 !important;
         }
+        
+        .content-wrapper {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        .container-fluid {
+            padding: 0 !important;
+        }
+        
         .content-card {
-            border: none;
-            box-shadow: none;
+            border: none !important;
+            box-shadow: none !important;
+            page-break-inside: avoid;
         }
+        
+        /* Título principal - ocultar el h3 general */
+        .content-card > h3:first-of-type {
+            display: none !important;
+        }
+        
+        h2 {
+            font-size: 20pt;
+            margin-bottom: 20px;
+            text-align: center;
+            page-break-after: avoid;
+        }
+        
+        h3, h4, h5 {
+            page-break-after: avoid;
+            margin-top: 15px;
+        }
+        
+        /* Cards de estadísticas */
+        .stat-card {
+            page-break-inside: avoid;
+            border: 1px solid #dee2e6 !important;
+            margin-bottom: 15px !important;
+            background: white !important;
+        }
+        
+        .row {
+            display: flex !important;
+            flex-wrap: wrap !important;
+        }
+        
+        .col-md-3, .col-md-6 {
+            page-break-inside: avoid;
+        }
+        
+        /* Gráficos */
+        .chart-container {
+            page-break-inside: avoid;
+            margin: 20px 0;
+            height: auto !important;
+            max-height: 350px;
+        }
+        
+        canvas {
+            max-width: 100% !important;
+            height: auto !important;
+            page-break-inside: avoid;
+        }
+        
+        /* Tablas */
         table {
-            font-size: 11px;
+            font-size: 9pt;
+            page-break-inside: auto;
+            border-collapse: collapse !important;
+            width: 100% !important;
+            margin-top: 15px;
         }
+        
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+        
+        thead {
+            display: table-header-group;
+            background-color: #f8f9fa !important;
+        }
+        
+        thead th {
+            background-color: #e9ecef !important;
+            font-weight: bold !important;
+            border: 1px solid #dee2e6 !important;
+        }
+        
         th, td {
-            padding: 6px;
+            padding: 6px !important;
+            border: 1px solid #dee2e6 !important;
+        }
+        
+        /* Tarjetas de contenido */
+        .card {
+            page-break-inside: avoid;
+            border: 1px solid #dee2e6 !important;
+            margin-bottom: 15px !important;
+            box-shadow: none !important;
+            background: white !important;
+        }
+        
+        .card-body {
+            padding: 15px !important;
+        }
+        
+        /* Forzar colores para impresión */
+        * {
+            color: #000 !important;
+            background: white !important;
+        }
+        
+        .stat-card h6 {
+            color: #6c757d !important;
+        }
+        
+        /* Optimizar espacio */
+        .mb-4 {
+            margin-bottom: 15px !important;
+        }
+        
+        /* Ajustar grid para impresión */
+        .row > div {
+            float: left;
+        }
+        
+        .col-md-3 {
+            width: 25% !important;
+        }
+        
+        .col-md-6 {
+            width: 50% !important;
+        }
+        
+        .col-md-12 {
+            width: 100% !important;
+        }
+        
+        /* Mostrar título de impresión */
+        .print-only {
+            display: block !important;
         }
     }
     .stat-card {
@@ -109,7 +287,7 @@ include 'layout_header.php';
     <h3 class="mb-4"><i class="bi bi-bar-chart-fill me-2"></i>Reportes y Estadísticas</h3>
     
     <!-- Filtros -->
-    <div class="card mb-4">
+    <div class="card mb-4 no-print">
         <div class="card-header bg-primary text-white">
             <h5 class="mb-0"><i class="bi bi-funnel me-2"></i>Filtros del Reporte</h5>
         </div>
@@ -126,13 +304,25 @@ include 'layout_header.php';
                     </div>
                     
                     <div class="col-md-3">
+                        <label class="form-label">Filtro Rápido</label>
+                        <select name="filtro_rapido" class="form-select" id="filtro_rapido" onchange="toggleDateInputs(this.value)">
+                            <option value="">Personalizado</option>
+                            <option value="hoy" <?= $filtro_rapido == 'hoy' ? 'selected' : '' ?>>Hoy</option>
+                            <option value="ayer" <?= $filtro_rapido == 'ayer' ? 'selected' : '' ?>>Ayer</option>
+                            <option value="semana" <?= $filtro_rapido == 'semana' ? 'selected' : '' ?>>Última Semana</option>
+                            <option value="mes" <?= $filtro_rapido == 'mes' ? 'selected' : '' ?>>Último Mes</option>
+                            <option value="año" <?= $filtro_rapido == 'año' ? 'selected' : '' ?>>Último Año</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3">
                         <label class="form-label">Fecha Inicio</label>
-                        <input type="date" name="fecha_inicio" class="form-control" value="<?= $fecha_inicio ?>">
+                        <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control" value="<?= $fecha_inicio ?>" <?= $filtro_rapido ? 'readonly' : '' ?>>
                     </div>
                     
                     <div class="col-md-3">
                         <label class="form-label">Fecha Fin</label>
-                        <input type="date" name="fecha_fin" class="form-control" value="<?= $fecha_fin ?>">
+                        <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" value="<?= $fecha_fin ?>" <?= $filtro_rapido ? 'readonly' : '' ?>>
                     </div>
                     
                     <?php if ($tipo_reporte == 'stock'): ?>
@@ -151,23 +341,29 @@ include 'layout_header.php';
                     
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-sync-alt me-1"></i>Actualizar Reporte
+                            <i class="bi bi-arrow-clockwise me-1"></i>Actualizar Reporte
                         </button>
                         
                         <?php if (!empty($reporte_data)): ?>
                         <div class="btn-group ms-2">
                             <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
-                                <i class="fas fa-download me-1"></i>Exportar
+                                <i class="bi bi-download me-1"></i>Exportar
                             </button>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a class="dropdown-item" href="javascript:void(0)" onclick="window.print()">
+                                        <i class="bi bi-printer me-2"></i>Imprimir
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
                                     <a class="dropdown-item" href="?<?= http_build_query(array_merge($_GET, ['exportar' => 1, 'formato' => 'pdf'])) ?>">
-                                        <i class="fas fa-file-pdf me-2"></i>PDF
+                                        <i class="bi bi-file-earmark-pdf me-2"></i>PDF
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="?<?= http_build_query(array_merge($_GET, ['exportar' => 1, 'formato' => 'excel'])) ?>">
-                                        <i class="fas fa-file-excel me-2"></i>Excel
+                                        <i class="bi bi-file-earmark-excel me-2"></i>Excel
                                     </a>
                                 </li>
                             </ul>
@@ -183,7 +379,8 @@ include 'layout_header.php';
         <?php if (isset($reporte_data['estadisticas']) && !empty($reporte_data['estadisticas'])): ?>
         <div class="row mb-4">
             <div class="col-12">
-                <h4 class="mb-3"><i class="bi bi-speedometer2 me-2"></i>Estadísticas Rápidas</h4>
+                <h4 class="mb-3 print-only" style="display: none;"><i class="bi bi-speedometer2 me-2"></i>Estadísticas Rápidas</h4>
+                <h4 class="mb-3 no-print"><i class="bi bi-speedometer2 me-2"></i>Estadísticas Rápidas</h4>
             </div>
             <?php foreach ($reporte_data['estadisticas'] as $key => $value): ?>
             <div class="col-md-3 mb-3">
@@ -742,6 +939,33 @@ function ordenarTabla(columna) {
     <?php endif; ?>
     
 <?php endif; ?>
+
+    // Función para habilitar/deshabilitar campos de fecha
+    function toggleDateInputs(value) {
+        const fechaInicio = document.getElementById('fecha_inicio');
+        const fechaFin = document.getElementById('fecha_fin');
+        const form = document.getElementById('filtro_rapido').form;
+        
+        if (value === '') {
+            // Personalizado - limpiar fechas y recargar para mostrar todo
+            fechaInicio.value = '';
+            fechaFin.value = '';
+            fechaInicio.removeAttribute('readonly');
+            fechaFin.removeAttribute('readonly');
+            
+            // Construir URL sin fechas para mostrar todo
+            const url = new URL(window.location.href);
+            url.searchParams.delete('fecha_inicio');
+            url.searchParams.delete('fecha_fin');
+            url.searchParams.delete('filtro_rapido');
+            window.location.href = url.toString();
+        } else {
+            // Filtro rápido - deshabilitar y enviar
+            fechaInicio.setAttribute('readonly', 'readonly');
+            fechaFin.setAttribute('readonly', 'readonly');
+            form.submit();
+        }
+    }
 </script>
 
 <?php include 'layout_footer.php'; ?>

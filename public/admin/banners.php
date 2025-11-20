@@ -11,6 +11,36 @@ if (!isset($_SESSION['user_id']) || $_SESSION['rol'] !== 'admin') {
 
 // Obtener todos los banners
 $banners = obtenerBanners(false);
+
+// Calcular el estado real de cada banner considerando sus enlaces
+foreach ($banners as &$banner) {
+    $estado_real = $banner['habilitado'];
+    $motivo_inactivo = '';
+    
+    // Si el banner está marcado como habilitado, verificar sus enlaces
+    if ($estado_real == 1) {
+        if ($banner['tipo_enlace'] === 'producto') {
+            if ($banner['enlace_habilitado'] == 0) {
+                $estado_real = 0;
+                $motivo_inactivo = 'producto_inhabilitado';
+            } elseif ($banner['categoria_producto_habilitado'] == 0) {
+                $estado_real = 0;
+                $motivo_inactivo = 'categoria_producto_inhabilitada';
+            }
+        } elseif ($banner['tipo_enlace'] === 'categoria') {
+            if ($banner['enlace_habilitado'] == 0) {
+                $estado_real = 0;
+                $motivo_inactivo = 'categoria_inhabilitada';
+            }
+        }
+    }
+    
+    $banner['estado_real'] = $estado_real;
+    $banner['motivo_inactivo'] = $motivo_inactivo;
+    $banner['puede_habilitar'] = ($banner['habilitado'] == 0 || $motivo_inactivo == '');
+}
+unset($banner);
+
 $productos = obtenerProductosParaBanner();
 $categorias = obtenerCategoriasParaBanner();
 
@@ -53,6 +83,16 @@ include 'layout_header.php';
     .btn-orden-down:disabled {
         opacity: 0.3;
         cursor: not-allowed;
+    }
+    
+    /* Estilo para switch deshabilitado */
+    .form-check-input:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .form-check-input:disabled ~ .form-check-label {
+        opacity: 0.7;
     }
 </style>
 
@@ -168,9 +208,29 @@ include 'layout_header.php';
                                                 <input class="form-check-input toggle-estado" 
                                                        type="checkbox" 
                                                        data-banner-id="<?= $banner['id'] ?>"
-                                                       <?= $banner['habilitado'] ? 'checked' : '' ?>>
+                                                       data-enlace-nombre="<?= htmlspecialchars($banner['enlace_nombre'] ?? '') ?>"
+                                                       data-motivo="<?= $banner['motivo_inactivo'] ?>"
+                                                       <?= $banner['estado_real'] ? 'checked' : '' ?>
+                                                       <?= $banner['motivo_inactivo'] ? 'disabled' : '' ?>>
                                                 <label class="form-check-label">
-                                                    <?= $banner['habilitado'] ? 'Activo' : 'Inactivo' ?>
+                                                    <?php if ($banner['estado_real']): ?>
+                                                        <span class="text-success">Activo</span>
+                                                    <?php else: ?>
+                                                        <span class="text-danger">Inactivo</span>
+                                                        <?php if ($banner['motivo_inactivo']): ?>
+                                                            <br><small class="text-muted">
+                                                                <?php
+                                                                if ($banner['motivo_inactivo'] == 'producto_inhabilitado') {
+                                                                    echo '(Producto inactivo)';
+                                                                } elseif ($banner['motivo_inactivo'] == 'categoria_inhabilitada') {
+                                                                    echo '(Categoría inactiva)';
+                                                                } elseif ($banner['motivo_inactivo'] == 'categoria_producto_inhabilitada') {
+                                                                    echo '(Categoría del producto inactiva)';
+                                                                }
+                                                                ?>
+                                                            </small>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
                                                 </label>
                                             </div>
                                         </td>
@@ -208,10 +268,40 @@ include 'layout_header.php';
 <script>
         // Toggle estado de banner
         document.querySelectorAll('.toggle-estado').forEach(toggle => {
+            // Si está deshabilitado (por enlace inactivo), mostrar mensaje al hacer clic
+            if (toggle.disabled) {
+                toggle.parentElement.style.cursor = 'not-allowed';
+                toggle.parentElement.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const motivo = toggle.dataset.motivo;
+                    const enlaceNombre = toggle.dataset.enlaceNombre;
+                    let mensaje = '';
+                    
+                    if (motivo === 'producto_inhabilitado') {
+                        mensaje = `No se puede habilitar este banner porque el producto "${enlaceNombre}" está inhabilitado. Por favor, habilite primero el producto o cambie el enlace del banner.`;
+                    } else if (motivo === 'categoria_inhabilitada') {
+                        mensaje = `No se puede habilitar este banner porque la categoría "${enlaceNombre}" está inhabilitada. Por favor, habilite primero la categoría o cambie el enlace del banner.`;
+                    } else if (motivo === 'categoria_producto_inhabilitada') {
+                        mensaje = `No se puede habilitar este banner porque la categoría del producto "${enlaceNombre}" está inhabilitada. Por favor, habilite primero la categoría o cambie el enlace del banner.`;
+                    }
+                    
+                    if (mensaje) {
+                        const alertError = document.createElement('div');
+                        alertError.className = 'alert alert-warning position-fixed top-0 start-50 translate-middle-x mt-3';
+                        alertError.style.zIndex = '9999';
+                        alertError.style.maxWidth = '600px';
+                        alertError.innerHTML = '<i class="bi bi-exclamation-triangle"></i> ' + mensaje;
+                        document.body.appendChild(alertError);
+                        
+                        setTimeout(() => alertError.remove(), 6000);
+                    }
+                });
+                return; // No agregar el listener de cambio
+            }
+            
             toggle.addEventListener('change', async function() {
                 const bannerId = this.dataset.bannerId;
                 const habilitado = this.checked ? 1 : 0;
-                const label = this.nextElementSibling;
 
                 try {
                     const response = await fetch('cambiar_estado_banner.php', {
@@ -223,19 +313,30 @@ include 'layout_header.php';
                     const data = await response.json();
 
                     if (data.success) {
-                        label.textContent = habilitado ? 'Activo' : 'Inactivo';
-                        
-                        // Mostrar alerta temporal
-                        const alert = document.createElement('div');
-                        alert.className = 'alert alert-success position-fixed top-0 start-50 translate-middle-x mt-3';
-                        alert.style.zIndex = '9999';
-                        alert.innerHTML = '<i class="bi bi-check-circle"></i> Estado actualizado correctamente';
-                        document.body.appendChild(alert);
-                        
-                        setTimeout(() => alert.remove(), 2000);
+                        // Recargar la página para actualizar el estado visual correctamente
+                        location.reload();
                     } else {
                         this.checked = !this.checked;
-                        alert('Error al cambiar el estado: ' + (data.error || 'Error desconocido'));
+                        
+                        // Mensajes de error personalizados
+                        let mensajeError = 'Error al cambiar el estado';
+                        if (data.error === 'producto_inhabilitado') {
+                            mensajeError = `No se puede habilitar este banner porque el producto "${data.nombre}" está inhabilitado. Por favor, habilite primero el producto o cambie el enlace del banner.`;
+                        } else if (data.error === 'categoria_inhabilitada') {
+                            mensajeError = `No se puede habilitar este banner porque la categoría "${data.nombre}" está inhabilitada. Por favor, habilite primero la categoría o cambie el enlace del banner.`;
+                        } else if (data.error) {
+                            mensajeError = 'Error al cambiar el estado: ' + data.error;
+                        }
+                        
+                        // Mostrar alerta de error
+                        const alertError = document.createElement('div');
+                        alertError.className = 'alert alert-danger position-fixed top-0 start-50 translate-middle-x mt-3';
+                        alertError.style.zIndex = '9999';
+                        alertError.style.maxWidth = '600px';
+                        alertError.innerHTML = '<i class="bi bi-exclamation-triangle"></i> ' + mensajeError;
+                        document.body.appendChild(alertError);
+                        
+                        setTimeout(() => alertError.remove(), 5000);
                     }
                 } catch (error) {
                     this.checked = !this.checked;

@@ -177,7 +177,6 @@ include 'layout_header.php';
                         <th>Domicilio Olva</th>
                         <th>Agencia Olva</th>
                         <th>Domicilio Shalom</th>
-                        <th>Domicilio Shalom</th>
                         <th>Agencia Shalom</th>
                         <th>Estado</th>
                         <th>Acciones</th>

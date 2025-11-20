@@ -19,13 +19,41 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     $id = (int)$_GET['id'];
     
     if ($_GET['action'] === 'inhabilitar') {
+        // Inhabilitar la categoría
         $stmt = $pdo->prepare("UPDATE categorias SET habilitado = 0 WHERE id = ?");
         $stmt->execute([$id]);
+        
+        // Inhabilitar todos los productos de esta categoría
+        $stmt = $pdo->prepare("UPDATE productos SET habilitado = 0 WHERE id_categoria = ?");
+        $stmt->execute([$id]);
+        
+        // Inhabilitar todos los banners enlazados a esta categoría
+        $stmt = $pdo->prepare("UPDATE banners SET habilitado = 0 WHERE tipo_enlace = 'categoria' AND enlace_id = ?");
+        $stmt->execute([$id]);
+        
+        // Inhabilitar banners enlazados a productos de esta categoría
+        $stmt = $pdo->prepare("UPDATE banners SET habilitado = 0 WHERE tipo_enlace = 'producto' AND enlace_id IN (SELECT id FROM productos WHERE id_categoria = ?)");
+        $stmt->execute([$id]);
+        
         header('Location: categorias.php?success=inhabilitado');
         exit;
     } elseif ($_GET['action'] === 'habilitar') {
+        // Habilitar la categoría
         $stmt = $pdo->prepare("UPDATE categorias SET habilitado = 1 WHERE id = ?");
         $stmt->execute([$id]);
+        
+        // Habilitar todos los productos de esta categoría
+        $stmt = $pdo->prepare("UPDATE productos SET habilitado = 1 WHERE id_categoria = ?");
+        $stmt->execute([$id]);
+        
+        // Habilitar todos los banners enlazados a esta categoría
+        $stmt = $pdo->prepare("UPDATE banners SET habilitado = 1 WHERE tipo_enlace = 'categoria' AND enlace_id = ?");
+        $stmt->execute([$id]);
+        
+        // Habilitar banners enlazados a productos de esta categoría
+        $stmt = $pdo->prepare("UPDATE banners SET habilitado = 1 WHERE tipo_enlace = 'producto' AND enlace_id IN (SELECT id FROM productos WHERE id_categoria = ?)");
+        $stmt->execute([$id]);
+        
         header('Location: categorias.php?success=habilitado');
         exit;
     }
@@ -448,11 +476,12 @@ include 'layout_header.php';
                         `<strong>¿Inhabilitar la categoría "${nombre}"?</strong><br><br>` +
                         `<div style="text-align: left; display: inline-block;">` +
                         `Al inhabilitar esta categoría:<br>` +
-                        `• Ya NO aparecerá en el catálogo público<br>` +
-                        `• Los productos de esta categoría NO se mostrarán<br>` +
+                        `• La categoría NO aparecerá en el catálogo público<br>` +
+                        `• <strong>Todos los productos</strong> de esta categoría se inhabilitarán automáticamente<br>` +
+                        `• <strong>Todos los banners</strong> enlazados se inhabilitarán automáticamente<br>` +
                         `• Se mantiene en la base de datos<br>` +
                         `• Puedes habilitarla nuevamente cuando quieras<br><br>` +
-                        `<strong style="color: #856404;">💡 Recomendado para categorías temporalmente sin productos disponibles.</strong>` +
+                        `<strong style="color: #856404;">⚠️ Todo se desactivará en cascada inmediatamente.</strong>` +
                         `</div>`,
                         'bi bi-tags-fill',
                         '#ffc107',
@@ -471,10 +500,11 @@ include 'layout_header.php';
                         `<strong>¿Habilitar la categoría "${nombre}"?</strong><br><br>` +
                         `<div style="text-align: left; display: inline-block;">` +
                         `Al habilitar esta categoría:<br>` +
-                        `• Aparecerá nuevamente en el catálogo público<br>` +
-                        `• Los productos de esta categoría serán visibles<br>` +
+                        `• La categoría aparecerá en el catálogo público<br>` +
+                        `• <strong>Todos los productos</strong> de esta categoría se habilitarán automáticamente<br>` +
+                        `• <strong>Todos los banners</strong> enlazados se habilitarán automáticamente<br>` +
                         `• Estará disponible en filtros<br><br>` +
-                        `<strong style="color: #28a745;">✓ La categoría estará visible inmediatamente.</strong>` +
+                        `<strong style="color: #28a745;">✓ Todo se activará en cascada inmediatamente.</strong>` +
                         `</div>`,
                         'bi bi-tags-fill',
                         '#28a745',

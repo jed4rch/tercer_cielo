@@ -13,10 +13,20 @@ function obtenerBanners($solo_habilitados = false) {
                 WHEN b.tipo_enlace = 'producto' THEN p.nombre
                 WHEN b.tipo_enlace = 'categoria' THEN c.nombre
                 ELSE NULL
-            END as enlace_nombre
+            END as enlace_nombre,
+            CASE 
+                WHEN b.tipo_enlace = 'producto' THEN p.habilitado
+                WHEN b.tipo_enlace = 'categoria' THEN c.habilitado
+                ELSE 1
+            END as enlace_habilitado,
+            CASE 
+                WHEN b.tipo_enlace = 'producto' THEN cat_prod.habilitado
+                ELSE 1
+            END as categoria_producto_habilitado
             FROM banners b
             LEFT JOIN productos p ON b.tipo_enlace = 'producto' AND b.enlace_id = p.id
-            LEFT JOIN categorias c ON b.tipo_enlace = 'categoria' AND b.enlace_id = c.id";
+            LEFT JOIN categorias c ON b.tipo_enlace = 'categoria' AND b.enlace_id = c.id
+            LEFT JOIN categorias cat_prod ON p.id_categoria = cat_prod.id";
     
     if ($solo_habilitados) {
         $sql .= " WHERE b.habilitado = 1";
@@ -158,10 +168,47 @@ function eliminarBanner($id) {
  * Cambiar el estado de un banner (habilitado/deshabilitado)
  * @param int $id
  * @param int $habilitado 0 o 1
- * @return bool
+ * @return bool|array Retorna true si se actualizó correctamente, false o array con error
  */
 function cambiarEstadoBanner($id, $habilitado) {
     $pdo = getPdo();
+    
+    // Si se está intentando habilitar, validar que el enlace esté habilitado
+    if ($habilitado == 1) {
+        $stmt = $pdo->prepare("SELECT tipo_enlace, enlace_id FROM banners WHERE id = ?");
+        $stmt->execute([$id]);
+        $banner = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($banner) {
+            // Validar si es producto
+            if ($banner['tipo_enlace'] === 'producto' && $banner['enlace_id']) {
+                $stmt = $pdo->prepare("SELECT p.habilitado as prod_habilitado, p.nombre as prod_nombre, c.habilitado as cat_habilitado, c.nombre as cat_nombre FROM productos p LEFT JOIN categorias c ON p.id_categoria = c.id WHERE p.id = ?");
+                $stmt->execute([$banner['enlace_id']]);
+                $producto = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                if ($producto) {
+                    if ($producto['prod_habilitado'] == 0) {
+                        return ['error' => 'producto_inhabilitado', 'nombre' => $producto['prod_nombre']];
+                    }
+                    if ($producto['cat_habilitado'] == 0) {
+                        return ['error' => 'categoria_inhabilitada', 'nombre' => $producto['cat_nombre']];
+                    }
+                }
+            }
+            
+            // Validar si es categoría
+            if ($banner['tipo_enlace'] === 'categoria' && $banner['enlace_id']) {
+                $stmt = $pdo->prepare("SELECT habilitado, nombre FROM categorias WHERE id = ?");
+                $stmt->execute([$banner['enlace_id']]);
+                $categoria = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                if ($categoria && $categoria['habilitado'] == 0) {
+                    return ['error' => 'categoria_inhabilitada', 'nombre' => $categoria['nombre']];
+                }
+            }
+        }
+    }
+    
     $stmt = $pdo->prepare("UPDATE banners SET habilitado = ? WHERE id = ?");
     return $stmt->execute([$habilitado, $id]);
 }
@@ -219,7 +266,7 @@ function subirImagenBanner($archivo) {
  */
 function obtenerProductosParaBanner() {
     $pdo = getPdo();
-    $stmt = $pdo->query("SELECT id, nombre, precio FROM productos ORDER BY nombre ASC");
+    $stmt = $pdo->query("SELECT id, nombre, precio, habilitado FROM productos ORDER BY nombre ASC");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -229,7 +276,7 @@ function obtenerProductosParaBanner() {
  */
 function obtenerCategoriasParaBanner() {
     $pdo = getPdo();
-    $stmt = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre ASC");
+    $stmt = $pdo->query("SELECT id, nombre, habilitado FROM categorias ORDER BY nombre ASC");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 

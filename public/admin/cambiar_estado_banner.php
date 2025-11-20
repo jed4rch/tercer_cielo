@@ -31,5 +31,12 @@ $habilitado = intval($datos['habilitado']);
 // Cambiar estado
 $resultado = cambiarEstadoBanner($banner_id, $habilitado);
 
+// Verificar si es un error con mensaje
+if (is_array($resultado)) {
+    header('Content-Type: application/json');
+    echo json_encode(['success' => false, 'error' => $resultado['error'], 'nombre' => $resultado['nombre']]);
+    exit;
+}
+
 header('Content-Type: application/json');
 echo json_encode(['success' => $resultado]);
