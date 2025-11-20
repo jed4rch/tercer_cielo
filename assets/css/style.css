@@ -1,0 +1,14 @@
+/* 
+ * NOTA: Este archivo contiene estilos mínimos ya que el proyecto usa Bootstrap.
+ * Las clases aquí definidas son genéricas y en su mayoría redundantes con Bootstrap.
+ * Mantener solo para sobrescrituras específicas si es necesario.
+ */
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+.card { box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); border: 1px solid rgba(0, 0, 0, 0.125); }
+.navbar-brand { font-size: 1.5rem; font-weight: bold; }
+.table { margin-top: 1rem; }
+.alert { margin-bottom: 1rem; }

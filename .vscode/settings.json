@@ -1,0 +1,32 @@
+{
+    // Configuración de PHP
+    "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
+    
+    // Configuración de PHPUnit (extensión emallin.phpunit)
+    "phpunit.php": "C:\\xampp\\php\\php.exe",
+    "phpunit.phpunit": "C:\\xampp\\htdocs\\tercer_cielo\\vendor\\bin\\phpunit",
+    "phpunit.args": [
+        "--colors=always",
+        "--testdox"
+    ],
+    "phpunit.execPath": "C:\\xampp\\htdocs\\tercer_cielo\\vendor\\bin\\phpunit",
+    "phpunit.preferRunClassTestOverQuickPickWindow": true,
+    
+    // Configuración de PHP Tools (devsense.phptools-vscode)
+    "phpunit.phpunit.file": "vendor/bin/phpunit",
+    "phpunit.driverPriority": [
+        "Command",
+        "Path"
+    ],
+    
+    // Configuración general de testing
+    "testing.automaticallyOpenPeekView": "never",
+    
+    // Para que VS Code reconozca mejor los archivos de test
+    "files.associations": {
+        "*.php": "php"
+    },
+    
+    // Terminal por defecto
+    "terminal.integrated.defaultProfile.windows": "PowerShell"
+}

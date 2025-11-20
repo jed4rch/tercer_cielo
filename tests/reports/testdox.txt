@@ -1,0 +1,109 @@
+Admin
+ [x] Get estadisticas admin
+ [x] Get pedidos admin sin filtros
+ [x] Get pedidos admin con filtro estado
+ [x] Get pedidos admin con busqueda
+ [x] Get pedidos admin con ordenamiento
+ [x] Actualizar estado pedido
+ [x] Generar reporte ventas
+ [x] Generar reporte stock
+ [x] Generar reporte stock por categoria
+ [x] Get estadisticas stock
+ [x] Get contadores pedidos
+ [x] Estadisticas consistentes
+
+Banners
+ [x] Obtener todos banners
+ [x] Obtener solo banners habilitados
+ [x] Agregar banner exitoso
+ [x] Agregar banner sin imagen
+ [x] Actualizar banner exitoso
+ [x] Actualizar banner sin datos
+ [x] Cambiar estado banner
+ [x] Obtener banner inexistente
+ [x] Eliminar banner
+ [x] Obtener productos para banner
+ [x] Obtener categorias para banner
+ [x] Obtener url enlace banner
+
+Boleta
+ [ ] Funcion generar boleta existe
+ [ ] T c p d f disponible
+ [ ] Generar boleta pedido inexistente
+ [ ] Generar boleta pedido valido
+ [ ] Directorio boletas existe
+ [ ] Estructura pedido para boleta
+ [ ] Pedido tiene detalles
+ [ ] Formato codigo pedido
+ [ ] Calcular total pedido
+ [ ] Formatear precio
+ [ ] Longitud nombre archivo p d f
+ [ ] Permisos directorio uploads
+ [ ] Escritura en directorio boletas
+
+Carrito
+ [x] Agregar producto al carrito
+ [x] Agregar multiples productos
+ [x] Agregar producto existente incrementa cantidad
+ [x] Eliminar producto del carrito
+ [x] Actualizar cantidad producto
+ [x] Actualizar cantidad a cero elimina producto
+ [x] Total carrito vacio
+ [x] Contar items carrito vacio
+ [x] Get carrito sin sesion
+
+Correo
+ [x] Funcion enviar correo existe
+ [x] Parametros basicos
+ [x] P h p mailer disponible
+ [x] Validar formato email
+ [x] Estructura correo h t m l
+ [x] Conversion h t m la texto
+ [x] Validar path adjunto
+ [x] Plantilla con variables
+ [x] Configuracion s m t p
+ [x] Generacion c i d unico
+ [x] Validar extensiones adjuntos
+ [x] Escapar caracteres h t m l
+ [x] Longitud asunto
+
+Imagenes
+ [x] Validar imagen sin archivo
+ [x] Validar imagen con error carga
+ [x] Validar imagen tamaño excesivo
+ [x] Obtener extension por mime
+ [x] Obtener extension mime desconocido
+ [x] Eliminar imagen inexistente
+ [x] Crear y eliminar imagen
+ [x] Tipos archivo permitidos
+ [x] Limite tamaño
+
+Inventario
+ [x] Registrar movimiento entrada
+ [x] Registrar movimiento salida
+ [x] Registrar movimiento con cantidad cero
+ [x] Registrar movimiento con cantidad negativa
+ [x] Multiples movimientos
+ [x] Registrar movimiento producto inexistente
+ [x] Movimiento se registra en tabla
+ [x] Movimiento con pdo externo
+
+Pedido
+ [x] Crear pedido exitoso
+ [x] Crear pedido carrito vacio
+ [x] Actualizar estado pedido
+
+Producto
+ [x] Agregar producto
+ [x] Actualizar producto
+ [x] Eliminar producto
+ [x] Busqueda productos
+
+Usuario
+ [x] Registro exitoso
+ [x] Registro email duplicado
+ [x] Registro campos vacios
+ [x] Registro password debil
+ [x] Login exitoso
+ [x] Actualizar usuario
+

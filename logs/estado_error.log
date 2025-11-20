@@ -1,0 +1,410 @@
+2025-11-19 23:11:27 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:11:27 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:11:27 | func_boleta.php | Pedido consultado
+2025-11-19 23:11:27 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:16:00 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:16:00 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:16:00 | func_boleta.php | Pedido consultado
+2025-11-19 23:16:00 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:16:15 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:16:15 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:16:15 | func_boleta.php | Pedido consultado
+2025-11-19 23:16:15 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:21:40 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:21:40 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:21:40 | func_boleta.php | Pedido consultado
+2025-11-19 23:21:40 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:21:52 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:21:52 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:21:52 | func_boleta.php | Pedido consultado
+2025-11-19 23:21:52 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:23:16 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:23:16 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:23:16 | func_boleta.php | Pedido consultado
+2025-11-19 23:23:16 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:23:30 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:23:30 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:23:30 | func_boleta.php | Pedido consultado
+2025-11-19 23:23:30 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:23:41 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:23:41 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:23:41 | func_boleta.php | Pedido consultado
+2025-11-19 23:23:41 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:26:26 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:26:26 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:26:26 | func_boleta.php | Pedido consultado
+2025-11-19 23:26:26 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:26:26 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=63
+2025-11-19 23:26:26 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:26:26 | func_boleta.php | Pedido consultado
+2025-11-19 23:26:26 | func_boleta.php | Detalles consultados
+2025-11-19 23:26:26 | func_boleta.php | Antes de crear TCPDF
+2025-11-19 23:26:26 | func_boleta.php | TCPDF creado
+2025-11-19 23:26:26 | func_boleta.php | Página agregada
+2025-11-19 23:26:26 | func_boleta.php | Iniciando encabezado
+2025-11-19 23:26:26 | func_boleta.php | Rectángulo dibujado
+2025-11-19 23:26:26 | func_boleta.php | Sin logo
+2025-11-19 23:26:26 | func_boleta.php | Título empresa agregado
+2025-11-19 23:26:26 | func_boleta.php | Datos de contacto agregados
+2025-11-19 23:26:26 | func_boleta.php | Antes de guardar PDF
+2025-11-19 23:26:26 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763612786.pdf
+2025-11-19 23:26:39 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:26:39 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:26:39 | func_boleta.php | Pedido consultado
+2025-11-19 23:26:39 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:26:39 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=65
+2025-11-19 23:26:39 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:26:39 | func_boleta.php | Pedido consultado
+2025-11-19 23:26:39 | func_boleta.php | Detalles consultados
+2025-11-19 23:26:39 | func_boleta.php | Antes de crear TCPDF
+2025-11-19 23:26:39 | func_boleta.php | TCPDF creado
+2025-11-19 23:26:39 | func_boleta.php | Página agregada
+2025-11-19 23:26:39 | func_boleta.php | Iniciando encabezado
+2025-11-19 23:26:39 | func_boleta.php | Rectángulo dibujado
+2025-11-19 23:26:39 | func_boleta.php | Sin logo
+2025-11-19 23:26:39 | func_boleta.php | Título empresa agregado
+2025-11-19 23:26:39 | func_boleta.php | Datos de contacto agregados
+2025-11-19 23:26:39 | func_boleta.php | Antes de guardar PDF
+2025-11-19 23:26:39 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763612799.pdf
+2025-11-19 23:29:23 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:29:23 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:29:23 | func_boleta.php | Pedido consultado
+2025-11-19 23:29:23 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:29:23 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=67
+2025-11-19 23:29:23 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:29:23 | func_boleta.php | Pedido consultado
+2025-11-19 23:29:23 | func_boleta.php | Detalles consultados
+2025-11-19 23:29:23 | func_boleta.php | Antes de crear TCPDF
+2025-11-19 23:29:23 | func_boleta.php | TCPDF creado
+2025-11-19 23:29:23 | func_boleta.php | Página agregada
+2025-11-19 23:29:23 | func_boleta.php | Iniciando encabezado
+2025-11-19 23:29:23 | func_boleta.php | Rectángulo dibujado
+2025-11-19 23:29:23 | func_boleta.php | Sin logo
+2025-11-19 23:29:23 | func_boleta.php | Título empresa agregado
+2025-11-19 23:29:23 | func_boleta.php | Datos de contacto agregados
+2025-11-19 23:29:23 | func_boleta.php | Antes de guardar PDF
+2025-11-19 23:29:23 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763612963.pdf
+2025-11-19 23:30:22 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:30:22 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:30:22 | func_boleta.php | Pedido consultado
+2025-11-19 23:30:22 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:30:22 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=72
+2025-11-19 23:30:22 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:30:22 | func_boleta.php | Pedido consultado
+2025-11-19 23:30:22 | func_boleta.php | Detalles consultados
+2025-11-19 23:30:22 | func_boleta.php | Antes de crear TCPDF
+2025-11-19 23:30:22 | func_boleta.php | TCPDF creado
+2025-11-19 23:30:22 | func_boleta.php | Página agregada
+2025-11-19 23:30:22 | func_boleta.php | Iniciando encabezado
+2025-11-19 23:30:22 | func_boleta.php | Rectángulo dibujado
+2025-11-19 23:30:22 | func_boleta.php | Sin logo
+2025-11-19 23:30:22 | func_boleta.php | Título empresa agregado
+2025-11-19 23:30:22 | func_boleta.php | Datos de contacto agregados
+2025-11-19 23:30:22 | func_boleta.php | Antes de guardar PDF
+2025-11-19 23:30:22 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763613022.pdf
+2025-11-19 23:30:38 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:30:38 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:30:38 | func_boleta.php | Pedido consultado
+2025-11-19 23:30:38 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:30:38 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=76
+2025-11-19 23:30:38 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:30:38 | func_boleta.php | Pedido consultado
+2025-11-19 23:30:38 | func_boleta.php | Detalles consultados
+2025-11-19 23:30:38 | func_boleta.php | Antes de crear TCPDF
+2025-11-19 23:30:38 | func_boleta.php | TCPDF creado
+2025-11-19 23:30:38 | func_boleta.php | Página agregada
+2025-11-19 23:30:38 | func_boleta.php | Iniciando encabezado
+2025-11-19 23:30:38 | func_boleta.php | Rectángulo dibujado
+2025-11-19 23:30:38 | func_boleta.php | Sin logo
+2025-11-19 23:30:38 | func_boleta.php | Título empresa agregado
+2025-11-19 23:30:38 | func_boleta.php | Datos de contacto agregados
+2025-11-19 23:30:38 | func_boleta.php | Antes de guardar PDF
+2025-11-19 23:30:38 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763613038.pdf
+2025-11-19 23:31:49 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:31:49 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:31:49 | func_boleta.php | Pedido consultado
+2025-11-19 23:31:49 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:31:49 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=81
+2025-11-19 23:31:49 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:31:49 | func_boleta.php | Pedido consultado
+2025-11-19 23:31:49 | func_boleta.php | Detalles consultados
+2025-11-19 23:31:49 | func_boleta.php | Antes de crear TCPDF
+2025-11-19 23:31:49 | func_boleta.php | TCPDF creado
+2025-11-19 23:31:49 | func_boleta.php | Página agregada
+2025-11-19 23:31:49 | func_boleta.php | Iniciando encabezado
+2025-11-19 23:31:49 | func_boleta.php | Rectángulo dibujado
+2025-11-19 23:31:49 | func_boleta.php | Sin logo
+2025-11-19 23:31:49 | func_boleta.php | Título empresa agregado
+2025-11-19 23:31:49 | func_boleta.php | Datos de contacto agregados
+2025-11-19 23:31:49 | func_boleta.php | Antes de guardar PDF
+2025-11-19 23:31:49 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763613109.pdf
+2025-11-19 23:35:34 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-19 23:35:34 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:35:34 | func_boleta.php | Pedido consultado
+2025-11-19 23:35:34 | func_boleta.php | Pedido no encontrado
+2025-11-19 23:35:34 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=91
+2025-11-19 23:35:34 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:35:34 | func_boleta.php | Pedido consultado
+2025-11-19 23:35:34 | func_boleta.php | Detalles consultados
+2025-11-19 23:35:34 | func_boleta.php | Antes de crear TCPDF
+2025-11-19 23:35:34 | func_boleta.php | TCPDF creado
+2025-11-19 23:35:34 | func_boleta.php | Página agregada
+2025-11-19 23:35:34 | func_boleta.php | Iniciando encabezado
+2025-11-19 23:35:34 | func_boleta.php | Rectángulo dibujado
+2025-11-19 23:35:34 | func_boleta.php | Sin logo
+2025-11-19 23:35:34 | func_boleta.php | Título empresa agregado
+2025-11-19 23:35:34 | func_boleta.php | Datos de contacto agregados
+2025-11-19 23:35:34 | func_boleta.php | Antes de guardar PDF
+2025-11-19 23:35:34 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763613334.pdf
+2025-11-19 23:55:37 | actualizar_estado.php | INICIO | pedido_id=94 estado=aprobado
+2025-11-19 23:55:37 | actualizar_estado.php | Antes de generar boleta | pedido_id=94
+2025-11-19 23:55:37 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=94
+2025-11-19 23:55:37 | func_boleta.php | Conexión PDO OK
+2025-11-19 23:55:37 | func_boleta.php | Pedido consultado
+2025-11-19 23:55:37 | func_boleta.php | Detalles consultados
+2025-11-19 23:55:37 | func_boleta.php | Antes de crear TCPDF
+2025-11-19 23:55:37 | func_boleta.php | TCPDF creado
+2025-11-19 23:55:37 | func_boleta.php | Página agregada
+2025-11-19 23:55:37 | func_boleta.php | Iniciando encabezado
+2025-11-19 23:55:37 | func_boleta.php | Rectángulo dibujado
+2025-11-19 23:55:37 | func_boleta.php | Sin logo
+2025-11-19 23:55:37 | func_boleta.php | Título empresa agregado
+2025-11-19 23:55:37 | func_boleta.php | Datos de contacto agregados
+2025-11-19 23:55:37 | func_boleta.php | Antes de guardar PDF
+2025-11-19 23:55:37 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_PED-2025-053.pdf
+2025-11-19 23:55:37 | actualizar_estado.php | Boleta generada: uploads/boletas/boleta_PED-2025-053.pdf
+2025-11-19 23:55:37 | actualizar_estado.php | Después de generar boleta | pedido_id=94
+2025-11-20 00:04:20 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:04:20 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:04:20 | func_boleta.php | Pedido consultado
+2025-11-20 00:04:20 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:04:20 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=96
+2025-11-20 00:04:20 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:04:20 | func_boleta.php | Pedido consultado
+2025-11-20 00:04:20 | func_boleta.php | Detalles consultados
+2025-11-20 00:04:20 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:04:20 | func_boleta.php | TCPDF creado
+2025-11-20 00:04:20 | func_boleta.php | Página agregada
+2025-11-20 00:04:20 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:04:20 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:04:20 | func_boleta.php | Sin logo
+2025-11-20 00:04:20 | func_boleta.php | Título empresa agregado
+2025-11-20 00:04:20 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:04:20 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:04:20 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763615060.pdf
+2025-11-20 00:05:03 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:05:03 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:05:03 | func_boleta.php | Pedido consultado
+2025-11-20 00:05:03 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:05:03 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=100
+2025-11-20 00:05:03 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:05:03 | func_boleta.php | Pedido consultado
+2025-11-20 00:05:03 | func_boleta.php | Detalles consultados
+2025-11-20 00:05:03 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:05:03 | func_boleta.php | TCPDF creado
+2025-11-20 00:05:03 | func_boleta.php | Página agregada
+2025-11-20 00:05:03 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:05:03 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:05:03 | func_boleta.php | Sin logo
+2025-11-20 00:05:03 | func_boleta.php | Título empresa agregado
+2025-11-20 00:05:03 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:05:03 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:05:03 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763615103.pdf
+2025-11-20 00:05:55 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:05:55 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:05:55 | func_boleta.php | Pedido consultado
+2025-11-20 00:05:55 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:05:55 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=104
+2025-11-20 00:05:55 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:05:55 | func_boleta.php | Pedido consultado
+2025-11-20 00:05:55 | func_boleta.php | Detalles consultados
+2025-11-20 00:05:55 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:05:55 | func_boleta.php | TCPDF creado
+2025-11-20 00:05:55 | func_boleta.php | Página agregada
+2025-11-20 00:05:55 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:05:55 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:05:55 | func_boleta.php | Sin logo
+2025-11-20 00:05:55 | func_boleta.php | Título empresa agregado
+2025-11-20 00:05:55 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:05:55 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:05:55 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763615155.pdf
+2025-11-20 00:10:07 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:10:07 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:10:07 | func_boleta.php | Pedido consultado
+2025-11-20 00:10:07 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:10:07 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=108
+2025-11-20 00:10:07 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:10:07 | func_boleta.php | Pedido consultado
+2025-11-20 00:10:07 | func_boleta.php | Detalles consultados
+2025-11-20 00:10:07 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:10:07 | func_boleta.php | TCPDF creado
+2025-11-20 00:10:07 | func_boleta.php | Página agregada
+2025-11-20 00:10:07 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:10:07 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:10:07 | func_boleta.php | Sin logo
+2025-11-20 00:10:07 | func_boleta.php | Título empresa agregado
+2025-11-20 00:10:07 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:10:07 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:10:07 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763615407.pdf
+2025-11-20 00:10:42 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:10:42 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:10:42 | func_boleta.php | Pedido consultado
+2025-11-20 00:10:42 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:10:42 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=112
+2025-11-20 00:10:42 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:10:42 | func_boleta.php | Pedido consultado
+2025-11-20 00:10:42 | func_boleta.php | Detalles consultados
+2025-11-20 00:10:42 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:10:42 | func_boleta.php | TCPDF creado
+2025-11-20 00:10:42 | func_boleta.php | Página agregada
+2025-11-20 00:10:42 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:10:42 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:10:42 | func_boleta.php | Sin logo
+2025-11-20 00:10:42 | func_boleta.php | Título empresa agregado
+2025-11-20 00:10:42 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:10:42 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:10:42 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763615442.pdf
+2025-11-20 00:15:40 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:15:40 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:15:40 | func_boleta.php | Pedido consultado
+2025-11-20 00:15:40 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:15:40 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=116
+2025-11-20 00:15:40 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:15:40 | func_boleta.php | Pedido consultado
+2025-11-20 00:15:40 | func_boleta.php | Detalles consultados
+2025-11-20 00:15:40 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:15:40 | func_boleta.php | TCPDF creado
+2025-11-20 00:15:40 | func_boleta.php | Página agregada
+2025-11-20 00:15:40 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:15:40 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:15:40 | func_boleta.php | Sin logo
+2025-11-20 00:15:40 | func_boleta.php | Título empresa agregado
+2025-11-20 00:15:40 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:15:40 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:15:40 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763615740.pdf
+2025-11-20 00:21:23 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:21:23 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:21:23 | func_boleta.php | Pedido consultado
+2025-11-20 00:21:23 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:21:23 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=120
+2025-11-20 00:21:23 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:21:23 | func_boleta.php | Pedido consultado
+2025-11-20 00:21:23 | func_boleta.php | Detalles consultados
+2025-11-20 00:21:23 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:21:23 | func_boleta.php | TCPDF creado
+2025-11-20 00:21:23 | func_boleta.php | Página agregada
+2025-11-20 00:21:23 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:21:23 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:21:23 | func_boleta.php | Sin logo
+2025-11-20 00:21:23 | func_boleta.php | Título empresa agregado
+2025-11-20 00:21:23 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:21:23 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:21:23 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763616083.pdf
+2025-11-20 00:22:51 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:22:51 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:22:51 | func_boleta.php | Pedido consultado
+2025-11-20 00:22:51 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:22:52 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=124
+2025-11-20 00:22:52 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:22:52 | func_boleta.php | Pedido consultado
+2025-11-20 00:22:52 | func_boleta.php | Detalles consultados
+2025-11-20 00:22:52 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:22:52 | func_boleta.php | TCPDF creado
+2025-11-20 00:22:52 | func_boleta.php | Página agregada
+2025-11-20 00:22:52 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:22:52 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:22:52 | func_boleta.php | Sin logo
+2025-11-20 00:22:52 | func_boleta.php | Título empresa agregado
+2025-11-20 00:22:52 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:22:52 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:22:52 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763616172.pdf
+2025-11-20 00:23:41 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:23:41 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:23:41 | func_boleta.php | Pedido consultado
+2025-11-20 00:23:41 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:23:42 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=127
+2025-11-20 00:23:42 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:23:42 | func_boleta.php | Pedido consultado
+2025-11-20 00:23:42 | func_boleta.php | Detalles consultados
+2025-11-20 00:23:42 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:23:42 | func_boleta.php | TCPDF creado
+2025-11-20 00:23:42 | func_boleta.php | Página agregada
+2025-11-20 00:23:42 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:23:42 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:23:42 | func_boleta.php | Sin logo
+2025-11-20 00:23:42 | func_boleta.php | Título empresa agregado
+2025-11-20 00:23:42 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:23:42 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:23:42 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763616222.pdf
+2025-11-20 00:23:55 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:23:55 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:23:55 | func_boleta.php | Pedido consultado
+2025-11-20 00:23:55 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:23:56 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=128
+2025-11-20 00:23:56 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:23:56 | func_boleta.php | Pedido consultado
+2025-11-20 00:23:56 | func_boleta.php | Detalles consultados
+2025-11-20 00:23:56 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:23:56 | func_boleta.php | TCPDF creado
+2025-11-20 00:23:56 | func_boleta.php | Página agregada
+2025-11-20 00:23:56 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:23:56 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:23:56 | func_boleta.php | Sin logo
+2025-11-20 00:23:56 | func_boleta.php | Título empresa agregado
+2025-11-20 00:23:56 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:23:56 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:23:56 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763616236.pdf
+2025-11-20 00:24:49 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:24:49 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:24:49 | func_boleta.php | Pedido consultado
+2025-11-20 00:24:49 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:24:49 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=130
+2025-11-20 00:24:49 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:24:49 | func_boleta.php | Pedido consultado
+2025-11-20 00:24:49 | func_boleta.php | Detalles consultados
+2025-11-20 00:24:49 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:24:49 | func_boleta.php | TCPDF creado
+2025-11-20 00:24:49 | func_boleta.php | Página agregada
+2025-11-20 00:24:49 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:24:49 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:24:49 | func_boleta.php | Sin logo
+2025-11-20 00:24:49 | func_boleta.php | Título empresa agregado
+2025-11-20 00:24:49 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:24:49 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:24:49 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763616289.pdf
+2025-11-20 00:29:05 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:29:05 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:29:05 | func_boleta.php | Pedido consultado
+2025-11-20 00:29:05 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:29:05 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=134
+2025-11-20 00:29:05 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:29:05 | func_boleta.php | Pedido consultado
+2025-11-20 00:29:05 | func_boleta.php | Detalles consultados
+2025-11-20 00:29:05 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:29:05 | func_boleta.php | TCPDF creado
+2025-11-20 00:29:05 | func_boleta.php | Página agregada
+2025-11-20 00:29:05 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:29:05 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:29:05 | func_boleta.php | Sin logo
+2025-11-20 00:29:05 | func_boleta.php | Título empresa agregado
+2025-11-20 00:29:05 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:29:05 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:29:05 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763616545.pdf
+2025-11-20 00:29:24 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 00:29:24 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:29:24 | func_boleta.php | Pedido consultado
+2025-11-20 00:29:24 | func_boleta.php | Pedido no encontrado
+2025-11-20 00:29:24 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=138
+2025-11-20 00:29:24 | func_boleta.php | Conexión PDO OK
+2025-11-20 00:29:24 | func_boleta.php | Pedido consultado
+2025-11-20 00:29:24 | func_boleta.php | Detalles consultados
+2025-11-20 00:29:24 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 00:29:24 | func_boleta.php | TCPDF creado
+2025-11-20 00:29:24 | func_boleta.php | Página agregada
+2025-11-20 00:29:24 | func_boleta.php | Iniciando encabezado
+2025-11-20 00:29:24 | func_boleta.php | Rectángulo dibujado
+2025-11-20 00:29:24 | func_boleta.php | Sin logo
+2025-11-20 00:29:24 | func_boleta.php | Título empresa agregado
+2025-11-20 00:29:24 | func_boleta.php | Datos de contacto agregados
+2025-11-20 00:29:24 | func_boleta.php | Antes de guardar PDF
+2025-11-20 00:29:24 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763616564.pdf

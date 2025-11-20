@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         backupGlobals="false"
+         colors="true">
+    <testsuites>
+        <testsuite name="TercerCielo Tests">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+    
+    <!-- Configuración de cobertura de código -->
+    <coverage>
+        <report>
+            <html outputDirectory="tests/reports/coverage"/>
+            <text outputFile="php://stdout" showUncoveredFiles="false"/>
+        </report>
+        <include>
+            <directory suffix=".php">includes/</directory>
+        </include>
+        <exclude>
+            <directory>vendor/</directory>
+            <directory>tests/</directory>
+        </exclude>
+    </coverage>
+    
+    <php>
+        <ini name="error_reporting" value="-1"/>
+        <ini name="display_errors" value="1"/>
+        <ini name="display_startup_errors" value="1"/>
+    </php>
+</phpunit>

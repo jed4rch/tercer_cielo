@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="89" assertions="428" errors="0" failures="0" skipped="0" time="8.611697">
+    <testsuite name="TercerCielo Tests" tests="89" assertions="428" errors="0" failures="0" skipped="0" time="8.611697">
+      <testsuite name="AdminTest" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" tests="12" assertions="213" errors="0" failures="0" skipped="0" time="4.067970">
+        <testcase name="testGetEstadisticasAdmin" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="32" class="AdminTest" classname="AdminTest" assertions="18" time="0.009328"/>
+        <testcase name="testGetPedidosAdminSinFiltros" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="59" class="AdminTest" classname="AdminTest" assertions="6" time="0.029126"/>
+        <testcase name="testGetPedidosAdminConFiltroEstado" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="78" class="AdminTest" classname="AdminTest" assertions="26" time="0.023645"/>
+        <testcase name="testGetPedidosAdminConBusqueda" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="95" class="AdminTest" classname="AdminTest" assertions="2" time="0.006004"/>
+        <testcase name="testGetPedidosAdminConOrdenamiento" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="115" class="AdminTest" classname="AdminTest" assertions="106" time="0.020744"/>
+        <testcase name="testActualizarEstadoPedido" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="137" class="AdminTest" classname="AdminTest" assertions="3" time="3.935564"/>
+        <testcase name="testGenerarReporteVentas" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="165" class="AdminTest" classname="AdminTest" assertions="12" time="0.017519"/>
+        <testcase name="testGenerarReporteStock" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="194" class="AdminTest" classname="AdminTest" assertions="7" time="0.004616"/>
+        <testcase name="testGenerarReporteStockPorCategoria" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="217" class="AdminTest" classname="AdminTest" assertions="3" time="0.012500"/>
+        <testcase name="testGetEstadisticasStock" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="239" class="AdminTest" classname="AdminTest" assertions="6" time="0.002257"/>
+        <testcase name="testGetContadoresPedidos" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="258" class="AdminTest" classname="AdminTest" assertions="21" time="0.003149"/>
+        <testcase name="testEstadisticasConsistentes" file="C:\xampp\htdocs\tercer_cielo\tests\AdminTest.php" line="281" class="AdminTest" classname="AdminTest" assertions="3" time="0.003518"/>
+      </testsuite>
+      <testsuite name="BannersTest" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" tests="12" assertions="45" errors="0" failures="0" skipped="0" time="0.065584">
+        <testcase name="testObtenerTodosBanners" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="35" class="BannersTest" classname="BannersTest" assertions="5" time="0.001869"/>
+        <testcase name="testObtenerSoloBannersHabilitados" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="52" class="BannersTest" classname="BannersTest" assertions="5" time="0.001401"/>
+        <testcase name="testAgregarBannerExitoso" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="66" class="BannersTest" classname="BannersTest" assertions="4" time="0.009976"/>
+        <testcase name="testAgregarBannerSinImagen" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="89" class="BannersTest" classname="BannersTest" assertions="2" time="0.001091"/>
+        <testcase name="testActualizarBannerExitoso" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="104" class="BannersTest" classname="BannersTest" assertions="5" time="0.016033"/>
+        <testcase name="testActualizarBannerSinDatos" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="135" class="BannersTest" classname="BannersTest" assertions="2" time="0.000352"/>
+        <testcase name="testCambiarEstadoBanner" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="145" class="BannersTest" classname="BannersTest" assertions="4" time="0.021771"/>
+        <testcase name="testObtenerBannerInexistente" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="172" class="BannersTest" classname="BannersTest" assertions="2" time="0.001381"/>
+        <testcase name="testEliminarBanner" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="182" class="BannersTest" classname="BannersTest" assertions="3" time="0.008318"/>
+        <testcase name="testObtenerProductosParaBanner" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="206" class="BannersTest" classname="BannersTest" assertions="5" time="0.001604"/>
+        <testcase name="testObtenerCategoriasParaBanner" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="222" class="BannersTest" classname="BannersTest" assertions="4" time="0.001123"/>
+        <testcase name="testObtenerUrlEnlaceBanner" file="C:\xampp\htdocs\tercer_cielo\tests\BannersTest.php" line="237" class="BannersTest" classname="BannersTest" assertions="4" time="0.000665"/>
+      </testsuite>
+      <testsuite name="BoletaTest" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" tests="13" assertions="32" errors="0" failures="0" skipped="0" time="0.166074">
+        <testcase name="testFuncionGenerarBoletaExiste" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="41" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.000354"/>
+        <testcase name="testTCPDFDisponible" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="51" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.104686"/>
+        <testcase name="testGenerarBoletaPedidoInexistente" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="61" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.003737"/>
+        <testcase name="testGenerarBoletaPedidoValido" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="73" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.040015"/>
+        <testcase name="testDirectorioBoletasExiste" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="108" class="BoletaTest" classname="BoletaTest" assertions="3" time="0.002724"/>
+        <testcase name="testEstructuraPedidoParaBoleta" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="128" class="BoletaTest" classname="BoletaTest" assertions="6" time="0.002819"/>
+        <testcase name="testPedidoTieneDetalles" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="151" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.001396"/>
+        <testcase name="testFormatoCodigoPedido" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="182" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.001834"/>
+        <testcase name="testCalcularTotalPedido" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="194" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.000702"/>
+        <testcase name="testFormatearPrecio" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="215" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.001008"/>
+        <testcase name="testLongitudNombreArchivoPDF" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="228" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.000831"/>
+        <testcase name="testPermisosDirectorioUploads" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="241" class="BoletaTest" classname="BoletaTest" assertions="3" time="0.002270"/>
+        <testcase name="testEscrituraEnDirectorioBoletas" file="C:\xampp\htdocs\tercer_cielo\tests\BoletaTest.php" line="264" class="BoletaTest" classname="BoletaTest" assertions="2" time="0.003699"/>
+      </testsuite>
+      <testsuite name="CarritoTest" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" tests="9" assertions="16" errors="0" failures="0" skipped="0" time="0.018938">
+        <testcase name="testAgregarProductoAlCarrito" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="34" class="CarritoTest" classname="CarritoTest" assertions="3" time="0.004988"/>
+        <testcase name="testAgregarMultiplesProductos" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="49" class="CarritoTest" classname="CarritoTest" assertions="2" time="0.002503"/>
+        <testcase name="testAgregarProductoExistenteIncrementaCantidad" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="64" class="CarritoTest" classname="CarritoTest" assertions="1" time="0.001824"/>
+        <testcase name="testEliminarProductoDelCarrito" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="77" class="CarritoTest" classname="CarritoTest" assertions="2" time="0.001716"/>
+        <testcase name="testActualizarCantidadProducto" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="92" class="CarritoTest" classname="CarritoTest" assertions="2" time="0.002680"/>
+        <testcase name="testActualizarCantidadACeroEliminaProducto" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="105" class="CarritoTest" classname="CarritoTest" assertions="2" time="0.002490"/>
+        <testcase name="testTotalCarritoVacio" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="118" class="CarritoTest" classname="CarritoTest" assertions="1" time="0.000582"/>
+        <testcase name="testContarItemsCarritoVacio" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="128" class="CarritoTest" classname="CarritoTest" assertions="1" time="0.000772"/>
+        <testcase name="testGetCarritoSinSesion" file="C:\xampp\htdocs\tercer_cielo\tests\CarritoTest.php" line="138" class="CarritoTest" classname="CarritoTest" assertions="2" time="0.001382"/>
+      </testsuite>
+      <testsuite name="CorreoTest" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" tests="13" assertions="38" errors="0" failures="0" skipped="0" time="0.010276">
+        <testcase name="testFuncionEnviarCorreoExiste" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="26" class="CorreoTest" classname="CorreoTest" assertions="2" time="0.000927"/>
+        <testcase name="testParametrosBasicos" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="39" class="CorreoTest" classname="CorreoTest" assertions="7" time="0.001526"/>
+        <testcase name="testPHPMailerDisponible" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="68" class="CorreoTest" classname="CorreoTest" assertions="1" time="0.000360"/>
+        <testcase name="testValidarFormatoEmail" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="78" class="CorreoTest" classname="CorreoTest" assertions="2" time="0.000352"/>
+        <testcase name="testEstructuraCorreoHTML" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="94" class="CorreoTest" classname="CorreoTest" assertions="3" time="0.001069"/>
+        <testcase name="testConversionHTMLaTexto" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="107" class="CorreoTest" classname="CorreoTest" assertions="3" time="0.000504"/>
+        <testcase name="testValidarPathAdjunto" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="121" class="CorreoTest" classname="CorreoTest" assertions="2" time="0.002173"/>
+        <testcase name="testPlantillaConVariables" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="148" class="CorreoTest" classname="CorreoTest" assertions="4" time="0.000440"/>
+        <testcase name="testConfiguracionSMTP" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="168" class="CorreoTest" classname="CorreoTest" assertions="4" time="0.000376"/>
+        <testcase name="testGeneracionCIDUnico" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="184" class="CorreoTest" classname="CorreoTest" assertions="2" time="0.001149"/>
+        <testcase name="testValidarExtensionesAdjuntos" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="197" class="CorreoTest" classname="CorreoTest" assertions="3" time="0.000548"/>
+        <testcase name="testEscaparCaracteresHTML" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="216" class="CorreoTest" classname="CorreoTest" assertions="2" time="0.000393"/>
+        <testcase name="testLongitudAsunto" file="C:\xampp\htdocs\tercer_cielo\tests\CorreoTest.php" line="229" class="CorreoTest" classname="CorreoTest" assertions="3" time="0.000460"/>
+      </testsuite>
+      <testsuite name="ImagenesTest" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" tests="9" assertions="23" errors="0" failures="0" skipped="0" time="0.020308">
+        <testcase name="testValidarImagenSinArchivo" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="25" class="ImagenesTest" classname="ImagenesTest" assertions="2" time="0.000351"/>
+        <testcase name="testValidarImagenConErrorCarga" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="38" class="ImagenesTest" classname="ImagenesTest" assertions="2" time="0.000650"/>
+        <testcase name="testValidarImagenTamañoExcesivo" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="51" class="ImagenesTest" classname="ImagenesTest" assertions="2" time="0.008511"/>
+        <testcase name="testObtenerExtensionPorMime" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="75" class="ImagenesTest" classname="ImagenesTest" assertions="5" time="0.001258"/>
+        <testcase name="testObtenerExtensionMimeDesconocido" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="88" class="ImagenesTest" classname="ImagenesTest" assertions="1" time="0.001156"/>
+        <testcase name="testEliminarImagenInexistente" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="99" class="ImagenesTest" classname="ImagenesTest" assertions="1" time="0.000415"/>
+        <testcase name="testCrearYEliminarImagen" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="112" class="ImagenesTest" classname="ImagenesTest" assertions="3" time="0.005228"/>
+        <testcase name="testTiposArchivoPermitidos" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="140" class="ImagenesTest" classname="ImagenesTest" assertions="6" time="0.001961"/>
+        <testcase name="testLimiteTamaño" file="C:\xampp\htdocs\tercer_cielo\tests\ImagenesTest.php" line="160" class="ImagenesTest" classname="ImagenesTest" assertions="1" time="0.000778"/>
+      </testsuite>
+      <testsuite name="InventarioTest" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" tests="8" assertions="22" errors="0" failures="0" skipped="0" time="0.085811">
+        <testcase name="testRegistrarMovimientoEntrada" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" line="38" class="InventarioTest" classname="InventarioTest" assertions="3" time="0.009840"/>
+        <testcase name="testRegistrarMovimientoSalida" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" line="58" class="InventarioTest" classname="InventarioTest" assertions="3" time="0.015448"/>
+        <testcase name="testRegistrarMovimientoConCantidadCero" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" line="84" class="InventarioTest" classname="InventarioTest" assertions="2" time="0.002131"/>
+        <testcase name="testRegistrarMovimientoConCantidadNegativa" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" line="95" class="InventarioTest" classname="InventarioTest" assertions="2" time="0.001294"/>
+        <testcase name="testMultiplesMovimientos" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" line="106" class="InventarioTest" classname="InventarioTest" assertions="4" time="0.026747"/>
+        <testcase name="testRegistrarMovimientoProductoInexistente" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" line="130" class="InventarioTest" classname="InventarioTest" assertions="2" time="0.005689"/>
+        <testcase name="testMovimientoSeRegistraEnTabla" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" line="141" class="InventarioTest" classname="InventarioTest" assertions="2" time="0.012029"/>
+        <testcase name="testMovimientoConPdoExterno" file="C:\xampp\htdocs\tercer_cielo\tests\InventarioTest.php" line="165" class="InventarioTest" classname="InventarioTest" assertions="4" time="0.012633"/>
+      </testsuite>
+      <testsuite name="PedidoTest" file="C:\xampp\htdocs\tercer_cielo\tests\PedidoTest.php" tests="3" assertions="10" errors="0" failures="0" skipped="0" time="3.583970">
+        <testcase name="testCrearPedidoExitoso" file="C:\xampp\htdocs\tercer_cielo\tests\PedidoTest.php" line="107" class="PedidoTest" classname="PedidoTest" assertions="4" time="0.029957"/>
+        <testcase name="testCrearPedidoCarritoVacio" file="C:\xampp\htdocs\tercer_cielo\tests\PedidoTest.php" line="132" class="PedidoTest" classname="PedidoTest" assertions="2" time="0.001110"/>
+        <testcase name="testActualizarEstadoPedido" file="C:\xampp\htdocs\tercer_cielo\tests\PedidoTest.php" line="143" class="PedidoTest" classname="PedidoTest" assertions="4" time="3.552903"/>
+      </testsuite>
+      <testsuite name="ProductoTest" file="C:\xampp\htdocs\tercer_cielo\tests\ProductoTest.php" tests="4" assertions="8" errors="0" failures="0" skipped="0" time="0.026420">
+        <testcase name="testAgregarProducto" file="C:\xampp\htdocs\tercer_cielo\tests\ProductoTest.php" line="24" class="ProductoTest" classname="ProductoTest" assertions="3" time="0.009943"/>
+        <testcase name="testActualizarProducto" file="C:\xampp\htdocs\tercer_cielo\tests\ProductoTest.php" line="41" class="ProductoTest" classname="ProductoTest" assertions="1" time="0.006444"/>
+        <testcase name="testEliminarProducto" file="C:\xampp\htdocs\tercer_cielo\tests\ProductoTest.php" line="56" class="ProductoTest" classname="ProductoTest" assertions="2" time="0.009055"/>
+        <testcase name="testBusquedaProductos" file="C:\xampp\htdocs\tercer_cielo\tests\ProductoTest.php" line="70" class="ProductoTest" classname="ProductoTest" assertions="2" time="0.000978"/>
+      </testsuite>
+      <testsuite name="UsuarioTest" file="C:\xampp\htdocs\tercer_cielo\tests\UsuarioTest.php" tests="6" assertions="21" errors="0" failures="0" skipped="0" time="0.566347">
+        <testcase name="testRegistroExitoso" file="C:\xampp\htdocs\tercer_cielo\tests\UsuarioTest.php" line="27" class="UsuarioTest" classname="UsuarioTest" assertions="5" time="0.167735"/>
+        <testcase name="testRegistroEmailDuplicado" file="C:\xampp\htdocs\tercer_cielo\tests\UsuarioTest.php" line="46" class="UsuarioTest" classname="UsuarioTest" assertions="2" time="0.091500"/>
+        <testcase name="testRegistroCamposVacios" file="C:\xampp\htdocs\tercer_cielo\tests\UsuarioTest.php" line="56" class="UsuarioTest" classname="UsuarioTest" assertions="2" time="0.000507"/>
+        <testcase name="testRegistroPasswordDebil" file="C:\xampp\htdocs\tercer_cielo\tests\UsuarioTest.php" line="66" class="UsuarioTest" classname="UsuarioTest" assertions="3" time="0.181007"/>
+        <testcase name="testLoginExitoso" file="C:\xampp\htdocs\tercer_cielo\tests\UsuarioTest.php" line="83" class="UsuarioTest" classname="UsuarioTest" assertions="5" time="0.116278"/>
+        <testcase name="testActualizarUsuario" file="C:\xampp\htdocs\tercer_cielo\tests\UsuarioTest.php" line="96" class="UsuarioTest" classname="UsuarioTest" assertions="4" time="0.009319"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

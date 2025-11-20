@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run PHPUnit Tests",
+            "type": "php",
+            "request": "launch",
+            "program": "${workspaceFolder}/vendor/bin/phpunit",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--colors=always",
+                "${file}"
+            ],
+            "runtimeExecutable": "C:\\xampp\\php\\php.exe"
+        }
+    ]
+}
