@@ -49,9 +49,7 @@ final class BoletaTest extends TestCase {
      */
     public function testTCPDFDisponible(): void {
         // Limpiar cualquier buffer residual
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $this->assertTrue(class_exists('TCPDF'),
             'TCPDF debe estar disponible');
@@ -64,16 +62,12 @@ final class BoletaTest extends TestCase {
      */
     public function testGenerarBoletaPedidoInexistente(): void {
         // Limpiar buffers antes
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $resultado = generar_boleta_pdf(999999);
         
         // Limpiar buffers después
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $this->assertFalse($resultado,
             'Debe retornar false para pedido inexistente');
@@ -104,17 +98,13 @@ final class BoletaTest extends TestCase {
         $stmt->execute([$this->testPedidoId]);
         
         // Limpiar buffers antes
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         // Intentar generar boleta
         $resultado = generar_boleta_pdf($this->testPedidoId);
         
         // Limpiar buffers después
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         // Puede retornar false o una ruta, dependiendo de la implementación
         // Lo importante es que no lance excepciones
@@ -131,9 +121,7 @@ final class BoletaTest extends TestCase {
      */
     public function testDirectorioBoletasExiste(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $dirBoletas = __DIR__ . '/../public/uploads/boletas/';
         
@@ -156,9 +144,7 @@ final class BoletaTest extends TestCase {
      */
     public function testEstructuraPedidoParaBoleta(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $pdo = getPdo();
         
@@ -184,9 +170,7 @@ final class BoletaTest extends TestCase {
      */
     public function testPedidoTieneDetalles(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $pdo = getPdo();
         
@@ -220,9 +204,7 @@ final class BoletaTest extends TestCase {
      */
     public function testFormatoCodigoPedido(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $codigoValido = 'ORD-' . date('Ymd') . '-' . rand(1000, 9999);
         
@@ -237,9 +219,7 @@ final class BoletaTest extends TestCase {
      */
     public function testCalcularTotalPedido(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $detalles = [
             ['cantidad' => 2, 'precio' => 15.50],
@@ -263,9 +243,7 @@ final class BoletaTest extends TestCase {
      */
     public function testFormatearPrecio(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $precio = 1234.56;
         $precioFormateado = 'S/ ' . number_format($precio, 2);
@@ -281,9 +259,7 @@ final class BoletaTest extends TestCase {
      */
     public function testLongitudNombreArchivoPDF(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $codigo = 'ORD-20231201-1234';
         $nombreArchivo = 'boleta_' . $codigo . '.pdf';
@@ -299,9 +275,7 @@ final class BoletaTest extends TestCase {
      */
     public function testPermisosDirectorioUploads(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $dirUploads = __DIR__ . '/../public/uploads/';
         
@@ -327,9 +301,7 @@ final class BoletaTest extends TestCase {
      */
     public function testEscrituraEnDirectorioBoletas(): void {
         // Limpiar buffers
-        while (ob_get_level() > 0) {
-            @ob_end_clean();
-        }
+
         
         $dirBoletas = __DIR__ . '/../public/uploads/boletas/';
         
@@ -354,9 +326,7 @@ final class BoletaTest extends TestCase {
      */
     protected function tearDown(): void {
         // Limpiar buffers después de cada test
-        while (ob_get_level() > 0) {
-            ob_end_clean();
-        }
+
         
         // Limpiar pedido de prueba si existe
         if ($this->testPedidoId) {
