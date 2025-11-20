@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2025 a las 00:05:26
+-- Tiempo de generación: 20-11-2025 a las 10:55:39
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -395,7 +395,143 @@ INSERT INTO `movimientos_inventario` (`id`, `id_producto`, `tipo`, `cantidad`, `
 (166, 1, 'entrada', 5, '2025-11-20 05:05:03'),
 (168, 1, 'entrada', 5, '2025-11-20 05:05:03'),
 (169, 1, 'entrada', 5, '2025-11-20 05:05:03'),
-(170, 1, 'salida', 3, '2025-11-20 05:05:03');
+(170, 1, 'salida', 3, '2025-11-20 05:05:03'),
+(171, 1, 'entrada', 10, '2025-11-20 05:05:55'),
+(172, 1, 'salida', 5, '2025-11-20 05:05:55'),
+(173, 1, 'entrada', 20, '2025-11-20 05:05:55'),
+(174, 1, 'salida', 10, '2025-11-20 05:05:55'),
+(175, 1, 'entrada', 5, '2025-11-20 05:05:55'),
+(177, 1, 'entrada', 5, '2025-11-20 05:05:55'),
+(178, 1, 'entrada', 5, '2025-11-20 05:05:55'),
+(179, 1, 'salida', 3, '2025-11-20 05:05:55'),
+(180, 1, 'entrada', 10, '2025-11-20 05:10:07'),
+(181, 1, 'salida', 5, '2025-11-20 05:10:07'),
+(182, 1, 'entrada', 20, '2025-11-20 05:10:07'),
+(183, 1, 'salida', 10, '2025-11-20 05:10:07'),
+(184, 1, 'entrada', 5, '2025-11-20 05:10:07'),
+(186, 1, 'entrada', 5, '2025-11-20 05:10:07'),
+(187, 1, 'entrada', 5, '2025-11-20 05:10:08'),
+(188, 1, 'salida', 3, '2025-11-20 05:10:08'),
+(189, 1, 'entrada', 10, '2025-11-20 05:10:42'),
+(190, 1, 'salida', 5, '2025-11-20 05:10:42'),
+(191, 1, 'entrada', 20, '2025-11-20 05:10:42'),
+(192, 1, 'salida', 10, '2025-11-20 05:10:42'),
+(193, 1, 'entrada', 5, '2025-11-20 05:10:42'),
+(195, 1, 'entrada', 5, '2025-11-20 05:10:42'),
+(196, 1, 'entrada', 5, '2025-11-20 05:10:42'),
+(197, 1, 'salida', 3, '2025-11-20 05:10:42'),
+(198, 1, 'entrada', 10, '2025-11-20 05:15:40'),
+(199, 1, 'salida', 5, '2025-11-20 05:15:40'),
+(200, 1, 'entrada', 20, '2025-11-20 05:15:40'),
+(201, 1, 'salida', 10, '2025-11-20 05:15:40'),
+(202, 1, 'entrada', 5, '2025-11-20 05:15:40'),
+(204, 1, 'entrada', 5, '2025-11-20 05:15:40'),
+(205, 1, 'entrada', 5, '2025-11-20 05:15:40'),
+(206, 1, 'salida', 3, '2025-11-20 05:15:40'),
+(207, 1, 'entrada', 10, '2025-11-20 05:21:23'),
+(208, 1, 'salida', 5, '2025-11-20 05:21:23'),
+(209, 1, 'entrada', 20, '2025-11-20 05:21:23'),
+(210, 1, 'salida', 10, '2025-11-20 05:21:23'),
+(211, 1, 'entrada', 5, '2025-11-20 05:21:23'),
+(213, 1, 'entrada', 5, '2025-11-20 05:21:23'),
+(214, 1, 'entrada', 5, '2025-11-20 05:21:23'),
+(215, 1, 'salida', 3, '2025-11-20 05:21:23'),
+(216, 1, 'entrada', 10, '2025-11-20 05:23:01'),
+(217, 1, 'salida', 5, '2025-11-20 05:23:01'),
+(218, 1, 'entrada', 20, '2025-11-20 05:23:01'),
+(219, 1, 'salida', 10, '2025-11-20 05:23:01'),
+(220, 1, 'entrada', 5, '2025-11-20 05:23:01'),
+(222, 1, 'entrada', 5, '2025-11-20 05:23:01'),
+(223, 1, 'entrada', 5, '2025-11-20 05:23:01'),
+(224, 1, 'salida', 3, '2025-11-20 05:23:01'),
+(225, 1, 'entrada', 10, '2025-11-20 05:24:49'),
+(226, 1, 'salida', 5, '2025-11-20 05:24:49'),
+(227, 1, 'entrada', 20, '2025-11-20 05:24:49'),
+(228, 1, 'salida', 10, '2025-11-20 05:24:49'),
+(229, 1, 'entrada', 5, '2025-11-20 05:24:49'),
+(231, 1, 'entrada', 5, '2025-11-20 05:24:49'),
+(232, 1, 'entrada', 5, '2025-11-20 05:24:49'),
+(233, 1, 'salida', 3, '2025-11-20 05:24:49'),
+(234, 1, 'entrada', 10, '2025-11-20 05:29:06'),
+(235, 1, 'salida', 5, '2025-11-20 05:29:06'),
+(236, 1, 'entrada', 20, '2025-11-20 05:29:06'),
+(237, 1, 'salida', 10, '2025-11-20 05:29:06'),
+(238, 1, 'entrada', 5, '2025-11-20 05:29:06'),
+(240, 1, 'entrada', 5, '2025-11-20 05:29:06'),
+(241, 1, 'entrada', 5, '2025-11-20 05:29:06'),
+(242, 1, 'salida', 3, '2025-11-20 05:29:06'),
+(243, 1, 'entrada', 10, '2025-11-20 05:29:24'),
+(244, 1, 'salida', 5, '2025-11-20 05:29:24'),
+(245, 1, 'entrada', 20, '2025-11-20 05:29:24'),
+(246, 1, 'salida', 10, '2025-11-20 05:29:24'),
+(247, 1, 'entrada', 5, '2025-11-20 05:29:24'),
+(249, 1, 'entrada', 5, '2025-11-20 05:29:24'),
+(250, 1, 'entrada', 5, '2025-11-20 05:29:24'),
+(251, 1, 'salida', 3, '2025-11-20 05:29:24'),
+(252, 1, 'entrada', 10, '2025-11-20 13:29:24'),
+(253, 1, 'salida', 5, '2025-11-20 13:29:25'),
+(254, 1, 'entrada', 20, '2025-11-20 13:29:25'),
+(255, 1, 'salida', 10, '2025-11-20 13:29:25'),
+(256, 1, 'entrada', 5, '2025-11-20 13:29:25'),
+(258, 1, 'entrada', 5, '2025-11-20 13:29:25'),
+(259, 1, 'entrada', 5, '2025-11-20 13:29:25'),
+(260, 1, 'salida', 3, '2025-11-20 13:29:25'),
+(261, 1, 'entrada', 10, '2025-11-20 13:30:48'),
+(262, 1, 'salida', 5, '2025-11-20 13:30:48'),
+(263, 1, 'entrada', 20, '2025-11-20 13:30:48'),
+(264, 1, 'salida', 10, '2025-11-20 13:30:48'),
+(265, 1, 'entrada', 5, '2025-11-20 13:30:48'),
+(267, 1, 'entrada', 5, '2025-11-20 13:30:48'),
+(268, 1, 'entrada', 5, '2025-11-20 13:30:48'),
+(269, 1, 'salida', 3, '2025-11-20 13:30:48'),
+(270, 1, 'entrada', 10, '2025-11-20 13:33:46'),
+(271, 1, 'salida', 5, '2025-11-20 13:33:46'),
+(272, 1, 'entrada', 20, '2025-11-20 13:33:46'),
+(273, 1, 'salida', 10, '2025-11-20 13:33:46'),
+(274, 1, 'entrada', 5, '2025-11-20 13:33:46'),
+(276, 1, 'entrada', 5, '2025-11-20 13:33:46'),
+(277, 1, 'entrada', 5, '2025-11-20 13:33:46'),
+(278, 1, 'salida', 3, '2025-11-20 13:33:46'),
+(279, 1, 'entrada', 10, '2025-11-20 13:34:52'),
+(280, 1, 'salida', 5, '2025-11-20 13:34:52'),
+(281, 1, 'entrada', 20, '2025-11-20 13:34:52'),
+(282, 1, 'salida', 10, '2025-11-20 13:34:52'),
+(283, 1, 'entrada', 5, '2025-11-20 13:34:52'),
+(285, 1, 'entrada', 5, '2025-11-20 13:34:52'),
+(286, 1, 'entrada', 5, '2025-11-20 13:34:52'),
+(287, 1, 'salida', 3, '2025-11-20 13:34:52'),
+(288, 1, 'entrada', 10, '2025-11-20 13:37:12'),
+(289, 1, 'salida', 5, '2025-11-20 13:37:12'),
+(290, 1, 'entrada', 20, '2025-11-20 13:37:12'),
+(291, 1, 'salida', 10, '2025-11-20 13:37:12'),
+(292, 1, 'entrada', 5, '2025-11-20 13:37:12'),
+(294, 1, 'entrada', 5, '2025-11-20 13:37:12'),
+(295, 1, 'entrada', 5, '2025-11-20 13:37:12'),
+(296, 1, 'salida', 3, '2025-11-20 13:37:12'),
+(297, 1, 'entrada', 10, '2025-11-20 13:38:02'),
+(298, 1, 'salida', 5, '2025-11-20 13:38:02'),
+(299, 1, 'entrada', 20, '2025-11-20 13:38:02'),
+(300, 1, 'salida', 10, '2025-11-20 13:38:02'),
+(301, 1, 'entrada', 5, '2025-11-20 13:38:02'),
+(303, 1, 'entrada', 5, '2025-11-20 13:38:02'),
+(304, 1, 'entrada', 5, '2025-11-20 13:38:02'),
+(305, 1, 'salida', 3, '2025-11-20 13:38:02'),
+(306, 1, 'entrada', 10, '2025-11-20 13:41:12'),
+(307, 1, 'salida', 5, '2025-11-20 13:41:12'),
+(308, 1, 'entrada', 20, '2025-11-20 13:41:12'),
+(309, 1, 'salida', 10, '2025-11-20 13:41:12'),
+(310, 1, 'entrada', 5, '2025-11-20 13:41:12'),
+(312, 1, 'entrada', 5, '2025-11-20 13:41:12'),
+(313, 1, 'entrada', 5, '2025-11-20 13:41:12'),
+(314, 1, 'salida', 3, '2025-11-20 13:41:12'),
+(315, 1, 'entrada', 10, '2025-11-20 13:49:29'),
+(316, 1, 'salida', 5, '2025-11-20 13:49:29'),
+(317, 1, 'entrada', 20, '2025-11-20 13:49:29'),
+(318, 1, 'salida', 10, '2025-11-20 13:49:29'),
+(319, 1, 'entrada', 5, '2025-11-20 13:49:29'),
+(321, 1, 'entrada', 5, '2025-11-20 13:49:29'),
+(322, 1, 'entrada', 5, '2025-11-20 13:49:29'),
+(323, 1, 'salida', 3, '2025-11-20 13:49:29');
 
 -- --------------------------------------------------------
 
@@ -652,7 +788,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `telefono`, `password`, `rol`, `created_at`, `reset_token`, `reset_expires`, `activo`, `session_id`) VALUES
-(1, 'Admin Tercer Cielo', 'admin@tercercielo.com', '987654321', '$2y$10$jUngHrg9hHKjvEhye9X1XeKPUiHx.2La43fBK0n9ipwpe/5sEayim', 'admin', '2025-10-20 21:06:01', NULL, NULL, 1, 'fttmn308d36dc9t80flg03sojg'),
+(1, 'Admin Tercer Cielo', 'admin@tercercielo.com', '987654321', '$2y$10$jUngHrg9hHKjvEhye9X1XeKPUiHx.2La43fBK0n9ipwpe/5sEayim', 'admin', '2025-10-20 21:06:01', NULL, NULL, 1, '9mkinf4o898qstfo5qhrcati18'),
 (2, 'Cliente Test', 'cliente@test.com', '123456789', '$2y$10$Y24caBznFTVcCgY8g16V0OjmLVfF44Qgl3K8X.OJ93Wbp9ALTOlXa', 'cliente', '2025-11-20 04:16:02', NULL, NULL, 1, NULL),
 (95, 'Jeferson David Rueda Chumacero', 'jedarchdj@gmail.com', '966535611', '$2y$10$XA0a1mtHebiQWs/kM/aSMOCHl37jGmqdtbUYDR2Ev.X2U9sFmVDIa', 'cliente', '2025-10-29 21:58:51', 'c4b6e72c358101632b84573901e2aeffb82d04ac9a5729db0d70afa454b56bc0', '2025-11-17 05:01:31', 1, NULL),
 (101, 'jeferson rueda', 'jeferson.rueda2004@gmail.com', '966535611', '$2y$10$T1uWvDRPI2/FRF/4qHedzeb8GQtepjzOn8tX/yB7J.j8bwojHHJTi', 'cliente', '2025-10-30 14:31:52', NULL, NULL, 1, NULL),
@@ -743,7 +879,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -761,31 +897,31 @@ ALTER TABLE `envios`
 -- AUTO_INCREMENT de la tabla `historial_pedidos`
 --
 ALTER TABLE `historial_pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- AUTO_INCREMENT de la tabla `movimientos_inventario`
 --
 ALTER TABLE `movimientos_inventario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido_detalles`
 --
 ALTER TABLE `pedido_detalles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_imagenes`
@@ -797,7 +933,7 @@ ALTER TABLE `producto_imagenes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 
 --
 -- Restricciones para tablas volcadas
