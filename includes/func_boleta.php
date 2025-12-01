@@ -84,18 +84,25 @@ function generar_boleta_pdf($pedido_id) {
         // Nombre de la empresa
         try {
             $pdf->SetTextColor(255, 255, 255); // Blanco
-            $pdf->SetFont('helvetica', 'B', 20);
-            $pdf->SetXY(15, 12);
-            $pdf->Cell(180, 8, 'FERRETERÍA TERCER CIELO', 0, 1, 'C');
+            $pdf->SetFont('helvetica', 'B', 18);
+            $pdf->SetXY(15, 8);
+            $pdf->Cell(180, 7, 'TERCER CIELO & ASOCIADOS S.A.C.', 0, 1, 'C');
             @error_log(date('Y-m-d H:i:s') . " | func_boleta.php | Título empresa agregado\n", 3, $logfile);
         } catch (Exception $e) {
             @error_log(date('Y-m-d H:i:s') . " | func_boleta.php | Error en título: " . $e->getMessage() . "\n", 3, $logfile);
         }
         
-        // Datos de contacto
+        // RUC de la empresa
+        $pdf->SetFont('helvetica', 'B', 11);
+        $pdf->SetX(15);
+        $pdf->Cell(180, 5, 'RUC: 20601399394', 0, 1, 'C');
+        
+        // Dirección fiscal
         $pdf->SetFont('helvetica', '', 9);
         $pdf->SetX(15);
-        $pdf->Cell(180, 5, 'Av. Guardia Civil mza. A lote. 1 urb. Villa Universitaria, Castilla - Piura', 0, 1, 'C');
+        $pdf->Cell(180, 5, 'MZ. A LT. 01 URB. VILLA UNIVERSITARIA - CASTILLA - PIURA - PIURA', 0, 1, 'C');
+        
+        // Datos de contacto
         $pdf->SetX(15);
         $pdf->Cell(180, 5, 'Tel: +51 945 913 352 | Email: info@tercercielo.com', 0, 1, 'C');
         
@@ -301,15 +308,16 @@ function generar_boleta_pdf($pedido_id) {
         $pdf->Cell(0, 8, '¡Gracias por su compra!', 0, 1, 'C', true);
         
         $pdf->SetFont('helvetica', '', 9);
-        $pdf->Cell(0, 5, 'Visite nuestra página web: www.tercercielo.com', 0, 1, 'C');
+        $pdf->Cell(0, 5, 'TERCER CIELO & ASOCIADOS S.A.C. | RUC: 20601399394', 0, 1, 'C');
         
-        $pdf->Ln(5);
+        $pdf->Ln(3);
         
         // Información de contacto en el pie
         $pdf->SetFont('helvetica', 'I', 8);
         $pdf->SetTextColor(100, 100, 100);
         $pdf->Cell(0, 4, 'Para consultas o reclamos, comuníquese con nosotros:', 0, 1, 'C');
         $pdf->Cell(0, 4, 'Tel: +51 945 913 352 | Email: info@tercercielo.com', 0, 1, 'C');
+        $pdf->Cell(0, 4, 'MZ. A LT. 01 URB. VILLA UNIVERSITARIA - CASTILLA - PIURA', 0, 1, 'C');
         
         // Guardar PDF
         $filename = 'boleta_' . $pedido['codigo'] . '.pdf';

@@ -169,10 +169,10 @@ include 'cabecera_unificada.php';
                     <button class="gallery-arrow prev" onclick="previousImage()" id="prevArrow">
                         <i class="bi bi-chevron-left"></i>
                     </button>
-                    <a href="<?= htmlspecialchars($producto['imagen']) ?>" 
+                    <a href="<?= htmlspecialchars(getImageUrl($producto['imagen'])) ?>" 
                        data-fancybox="gallery"
                        data-caption="<?= htmlspecialchars($producto['nombre']) ?>">
-                        <img src="<?= htmlspecialchars($producto['imagen']) ?>" 
+                        <img src="<?= htmlspecialchars(getImageUrl($producto['imagen'])) ?>" 
                              class="img-fluid" 
                              id="mainImage"
                              alt="<?= htmlspecialchars($producto['nombre']) ?>">
@@ -183,13 +183,13 @@ include 'cabecera_unificada.php';
                 </div>
                 <div class="d-flex gap-2 overflow-auto" id="thumbnailContainer">
                     <div class="product-gallery-thumb active" data-index="0" onclick="changeMainImageByIndex(0)">
-                        <img src="<?= htmlspecialchars($producto['imagen']) ?>" 
+                        <img src="<?= htmlspecialchars(getImageUrl($producto['imagen'])) ?>" 
                              class="img-thumbnail" 
                              alt="Thumbnail">
                     </div>
                     <?php $index = 1; foreach ($imagenes as $img): ?>
                         <div class="product-gallery-thumb" data-index="<?= $index ?>" onclick="changeMainImageByIndex(<?= $index ?>)">
-                            <img src="<?= htmlspecialchars($img['url_imagen']) ?>" 
+                            <img src="<?= htmlspecialchars(getImageUrl($img['url_imagen'])) ?>" 
                                  class="img-thumbnail" 
                                  alt="Thumbnail">
                         </div>
@@ -289,7 +289,7 @@ include 'cabecera_unificada.php';
                                 <?php endif; ?>
                                 
                                 <a href="producto.php?id=<?= $prod['id'] ?>" class="text-decoration-none">
-                                    <img src="<?= htmlspecialchars($prod['imagen']) ?>" 
+                                    <img src="<?= htmlspecialchars(getImageUrl($prod['imagen'])) ?>" 
                                          class="card-img-top" 
                                          style="height: 160px; object-fit: contain; padding: 10px; background: #f8f9fa;"
                                          alt="<?= htmlspecialchars($prod['nombre']) ?>">
@@ -334,9 +334,9 @@ include 'cabecera_unificada.php';
 
     // Array de imágenes para navegación
     const imageGallery = [
-        '<?= htmlspecialchars($producto['imagen']) ?>'
+        '<?= htmlspecialchars(getImageUrl($producto['imagen'])) ?>'
         <?php foreach ($imagenes as $img): ?>,
-        '<?= htmlspecialchars($img['url_imagen']) ?>'
+        '<?= htmlspecialchars(getImageUrl($img['url_imagen'])) ?>'
         <?php endforeach; ?>
     ];
     let currentImageIndex = 0;

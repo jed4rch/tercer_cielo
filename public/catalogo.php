@@ -436,9 +436,7 @@ include 'cabecera_unificada.php';
                     $sin_stock = $disponible <= 0;
 
                     // === IMAGEN ===
-                    $img_src = !empty($p['imagen'])
-                        ? $p['imagen']
-                        : '../assets/img/default-product.png';
+                    $img_src = getImageUrl($p['imagen']);
                     ?>
                     <div class="col-md-6 col-lg-4">
                         <div class="producto-card h-100 position-relative">
@@ -452,7 +450,7 @@ include 'cabecera_unificada.php';
                                 <img src="<?= htmlspecialchars($img_src) ?>"
                                     class="producto-img w-100"
                                     alt="<?= htmlspecialchars($p['nombre']) ?>"
-                                    onerror="this.src='../assets/img/default-product.png';">
+                                    onerror="this.src='<?= ASSETS_URL ?>/assets/img/default-product.png';">
                             </a>
 
                             <div class="card-body d-flex flex-column p-4">

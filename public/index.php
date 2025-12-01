@@ -339,12 +339,12 @@ include 'cabecera_unificada.php';
                     <div class="carousel-item <?= $index === 0 ? 'active' : '' ?>">
                         <?php if ($url_enlace): ?>
                             <a href="<?= htmlspecialchars($url_enlace) ?>">
-                                <img src="<?= htmlspecialchars($banner['imagen']) ?>" 
+                                <img src="<?= htmlspecialchars(getImageUrl($banner['imagen'])) ?>" 
                                      alt="<?= htmlspecialchars($banner['titulo'] ?? 'Banner') ?>"
                                      class="d-block w-100">
                             </a>
                         <?php else: ?>
-                            <img src="<?= htmlspecialchars($banner['imagen']) ?>" 
+                            <img src="<?= htmlspecialchars(getImageUrl($banner['imagen'])) ?>" 
                                  alt="<?= htmlspecialchars($banner['titulo'] ?? 'Banner') ?>"
                                  class="d-block w-100">
                         <?php endif; ?>
@@ -395,7 +395,7 @@ include 'cabecera_unificada.php';
                                 </span>
 
                                 <?php if (!empty($cat['imagen'])): ?>
-                                    <img src="<?= htmlspecialchars($cat['imagen']) ?>"
+                                    <img src="<?= htmlspecialchars(getImageUrl($cat['imagen'])) ?>"
                                         class="card-img-top categoria-img"
                                         alt="<?= htmlspecialchars($cat['nombre']) ?>"
                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -446,15 +446,13 @@ include 'cabecera_unificada.php';
                             <?php endif; ?>
 
                             <?php
-                            $img_src = !empty($p['imagen'])
-                                ? $p['imagen']
-                                : '../assets/img/default-product.jpg';
+                            $img_src = getImageUrl($p['imagen']);
                             ?>
                             <a href="producto.php?id=<?= $p['id'] ?>" class="text-decoration-none">
                                 <img src="<?= htmlspecialchars($img_src) ?>"
                                     class="producto-img w-100"
                                     alt="<?= htmlspecialchars($p['nombre']) ?>"
-                                    onerror="this.src='../assets/img/default-product.jpg';">
+                                    onerror="this.src='<?= ASSETS_URL ?>/assets/img/default-product.png';">
                             </a>
 
                             <div class="card-body d-flex flex-column p-4">

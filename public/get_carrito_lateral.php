@@ -33,9 +33,7 @@ if (empty($carrito)) {
             'stock_total' => $stock_total
         ];
 
-        $img_src = !empty($item['imagen'])
-            ? $item['imagen']
-            : '../assets/img/default-product.jpg';
+        $img_src = getImageUrl($item['imagen']);
 
         echo '
         <div class="carrito-item d-flex align-items-center mb-3" data-id="' . $id . '">
@@ -44,7 +42,7 @@ if (empty($carrito)) {
                      alt="' . htmlspecialchars($item['nombre']) . '"
                      class="rounded"
                      style="width:50px;height:50px;object-fit:contain;background:#f8f9fa;"
-                     onerror="this.src=\'../assets/img/default-product.jpg\';">
+                     onerror="this.src=\'' . ASSETS_URL . '/assets/img/default-product.png\';">
             </a>
             <div class="flex-grow-1">
                 <h6 class="mb-1">

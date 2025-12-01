@@ -31,16 +31,14 @@ $total_precio = get_total_carrito();
             <?php foreach ($carrito as $id => $item): ?>
                 <div class="carrito-item d-flex align-items-center mb-3" data-id="<?= $id ?>">
                     <?php
-                    $img_src = !empty($item['imagen'])
-                        ? $item['imagen']
-                        : '../assets/img/default-product.jpg';
+                    $img_src = getImageUrl($item['imagen']);
                     ?>
                     <a href="producto.php?id=<?= $id ?>" class="me-3">
                         <img src="<?= htmlspecialchars($img_src) ?>" 
                              alt="<?= htmlspecialchars($item['nombre']) ?>"
                              class="rounded"
                              style="width:50px;height:50px;object-fit:contain;background:#f8f9fa;"
-                             onerror="this.src='../assets/img/default-product.jpg';">
+                             onerror="this.src='<?= ASSETS_URL ?>/assets/img/default-product.png';">
                     </a>
                     <div class="flex-grow-1">
                         <h6 class="mb-1">

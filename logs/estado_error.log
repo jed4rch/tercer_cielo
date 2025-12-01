@@ -588,3 +588,39 @@
 2025-11-20 08:49:29 | func_boleta.php | Datos de contacto agregados
 2025-11-20 08:49:29 | func_boleta.php | Antes de guardar PDF
 2025-11-20 08:49:29 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763646569.pdf
+2025-11-20 19:18:21 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=999999
+2025-11-20 19:18:21 | func_boleta.php | Conexión PDO OK
+2025-11-20 19:18:21 | func_boleta.php | Pedido consultado
+2025-11-20 19:18:21 | func_boleta.php | Pedido no encontrado
+2025-11-20 19:18:21 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=179
+2025-11-20 19:18:21 | func_boleta.php | Conexión PDO OK
+2025-11-20 19:18:21 | func_boleta.php | Pedido consultado
+2025-11-20 19:18:21 | func_boleta.php | Detalles consultados
+2025-11-20 19:18:21 | func_boleta.php | Antes de crear TCPDF
+2025-11-20 19:18:21 | func_boleta.php | TCPDF creado
+2025-11-20 19:18:21 | func_boleta.php | Página agregada
+2025-11-20 19:18:21 | func_boleta.php | Iniciando encabezado
+2025-11-20 19:18:21 | func_boleta.php | Rectángulo dibujado
+2025-11-20 19:18:21 | func_boleta.php | Sin logo
+2025-11-20 19:18:21 | func_boleta.php | Título empresa agregado
+2025-11-20 19:18:21 | func_boleta.php | Datos de contacto agregados
+2025-11-20 19:18:21 | func_boleta.php | Antes de guardar PDF
+2025-11-20 19:18:21 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_TEST-1763684301.pdf
+2025-11-29 22:36:39 | actualizar_estado.php | INICIO | pedido_id=175 estado=aprobado
+2025-11-29 22:36:39 | actualizar_estado.php | Antes de generar boleta | pedido_id=175
+2025-11-29 22:36:39 | func_boleta.php | INICIO generar_boleta_pdf | pedido_id=175
+2025-11-29 22:36:39 | func_boleta.php | Conexión PDO OK
+2025-11-29 22:36:39 | func_boleta.php | Pedido consultado
+2025-11-29 22:36:39 | func_boleta.php | Detalles consultados
+2025-11-29 22:36:39 | func_boleta.php | Antes de crear TCPDF
+2025-11-29 22:36:40 | func_boleta.php | TCPDF creado
+2025-11-29 22:36:40 | func_boleta.php | Página agregada
+2025-11-29 22:36:40 | func_boleta.php | Iniciando encabezado
+2025-11-29 22:36:40 | func_boleta.php | Rectángulo dibujado
+2025-11-29 22:36:40 | func_boleta.php | Sin logo
+2025-11-29 22:36:40 | func_boleta.php | Título empresa agregado
+2025-11-29 22:36:40 | func_boleta.php | Datos de contacto agregados
+2025-11-29 22:36:40 | func_boleta.php | Antes de guardar PDF
+2025-11-29 22:36:40 | func_boleta.php | PDF guardado en C:\xampp\htdocs\tercer_cielo\includes/../public/uploads/boletas/boleta_PED-2025-054.pdf
+2025-11-29 22:36:40 | actualizar_estado.php | Boleta generada: uploads/boletas/boleta_PED-2025-054.pdf
+2025-11-29 22:36:40 | actualizar_estado.php | Después de generar boleta | pedido_id=175
