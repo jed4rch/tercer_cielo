@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2025 a las 10:55:39
+-- Tiempo de generación: 30-11-2025 a las 21:35:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -223,7 +223,8 @@ INSERT INTO `historial_pedidos` (`id`, `pedido_id`, `estado_anterior`, `estado_n
 (119, 58, 'pendiente', 'aprobado', '2025-11-19 23:22:02'),
 (140, 94, 'pendiente', 'aprobado', '2025-11-19 23:55:37'),
 (141, 94, 'aprobado', 'enviado', '2025-11-19 23:56:08'),
-(142, 94, 'enviado', 'entregado', '2025-11-19 23:57:12');
+(142, 94, 'enviado', 'entregado', '2025-11-19 23:57:12'),
+(181, 175, 'pendiente', 'aprobado', '2025-11-29 22:36:39');
 
 -- --------------------------------------------------------
 
@@ -613,7 +614,8 @@ INSERT INTO `pedidos` (`id`, `codigo`, `usuario_id`, `total`, `metodo_pago`, `me
 (51, 'PED-2025-050', 95, 32.80, 'plin', 'envio', 'agencia', 'olva', 'Arequipa, Arequipa, Cayma', '966535611', 'uploads/comprobantes/PED-2025-050.png', 'entregado', '2025-11-19 17:38:26', 15.00),
 (52, 'PED-2025-051', 95, 32.80, 'yape', 'envio', 'domicilio', 'shalom', 'Calle miguel checa, Cusco, Cusco, Cusco', '966535611', 'uploads/comprobantes/PED-2025-051.jpg', 'rechazado', '2025-11-19 17:41:58', 15.00),
 (58, NULL, 2, 100.00, NULL, 'envio', 'domicilio', 'olva', NULL, NULL, NULL, 'aprobado', '2025-11-19 23:22:02', 0.00),
-(94, 'PED-2025-053', 95, 298.70, 'yape', 'envio', 'domicilio', 'olva', 'Calle miguel checa, Arequipa, Arequipa, Cayma', '966535611', 'uploads/comprobantes/PED-2025-053.jpg', 'entregado', '2025-11-19 23:54:51', 20.00);
+(94, 'PED-2025-053', 95, 298.70, 'yape', 'envio', 'domicilio', 'olva', 'Calle miguel checa, Arequipa, Arequipa, Cayma', '966535611', 'uploads/comprobantes/PED-2025-053.jpg', 'entregado', '2025-11-19 23:54:51', 20.00),
+(175, 'PED-2025-054', 95, 321.30, 'yape', 'envio', 'domicilio', 'olva', 'Calle Miguel Checa AA.HH El obrero #218\r\nPanadería Rueda, Cusco, Cusco, Cusco', '966535611', 'uploads/comprobantes/PED-2025-054.jpg', 'aprobado', '2025-11-29 22:31:58', 20.00);
 
 -- --------------------------------------------------------
 
@@ -696,7 +698,10 @@ INSERT INTO `pedido_detalles` (`id`, `pedido_id`, `producto_id`, `nombre`, `prec
 (60, 52, 31, 'Clavos para concreto 1″ – caja 1 kg', 8.90, 2),
 (76, 94, 32, 'Carretilla de acero 90 L – rueda neumática', 219.90, 1),
 (77, 94, 31, 'Clavos para concreto 1″ – caja 1 kg', 8.90, 1),
-(78, 94, 30, 'Panel Drywall 1.20 × 2.40 m – espesor 12.5 mm', 49.90, 1);
+(78, 94, 30, 'Panel Drywall 1.20 × 2.40 m – espesor 12.5 mm', 49.90, 1),
+(121, 175, 32, 'Carretilla de acero 90 L – rueda neumática', 219.90, 1),
+(122, 175, 26, 'Arena Fina Seleccionada – m³', 79.00, 1),
+(123, 175, 24, 'Ladrillo Cerámico “King Kong” 18 huecos – unidad', 1.20, 2);
 
 -- --------------------------------------------------------
 
@@ -730,15 +735,15 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `precio_anteri
 (21, 'Atornillador Inalámbrico Bosch 1/4\" 3.6 V', 'El Atornillador Bosch Go inalámbrico de 3,6V BIVOLT con batería integrada y autonomía de 1,5Ah es la evolución del destornillador manual! El primer atornillador inteligente del mundo con el innovador Sistema Push&Go.', 149.90, NULL, NULL, 15, 1, '/tercer_cielo/public/uploads/productos/691e5a21c93d2_1763596833.jpg', 1),
 (22, 'Candado Laminado Acero 68.2 mm', 'Protege tus pertenencias con el Candado Laminado SM Modelo QC0265 de 68.2mm. Este resistente candado de acero laminado con arco endurecido cromado es ideal para casetas, rejas, puertas metálicas y más. Con un mecanismo de bloqueo de pines y 2 llaves niqueladas, garantiza seguridad y durabilidad. Su acabado brillante lo hace perfecto para exteriores, con nivel de corrosión medio. Con dimensiones de 6.8x9.5x3 cm y peso de 0.647 kg, es fácil de transportar y usar. ¡Protege tus espacios con este candado confiable!', 39.90, NULL, NULL, 8, 6, '/tercer_cielo/public/uploads/productos/691e5add77768_1763597021.jpg', 1),
 (23, 'Cemento Portland Tipo I – Bolsa 42.5 kg', 'Cemento Portland tipo I de uso estructural, clase 42.5N, endurecimiento normal, diámetro de clinker ≤ 3 % y finura mínima 320 m²/kg. Ideal para hormigón armado en muros, losas y columnas.', 32.50, NULL, NULL, 80, 5, '/tercer_cielo/public/uploads/productos/691e5b037fe7f_1763597059.jpg', 1),
-(24, 'Ladrillo Cerámico “King Kong” 18 huecos – unidad', 'Ladrillo cerámico de alta densidad (~1,800 kg/m³), 18 huecos de 40 mm, resistencia a compresión ≥ 8 MPa, absorbción ≤ 15 %. Para muros portantes y divisiones internas.', 1.20, NULL, NULL, 500, 5, '/tercer_cielo/public/uploads/productos/691e5b8f65f9d_1763597199.jpg', 1),
+(24, 'Ladrillo Cerámico “King Kong” 18 huecos – unidad', 'Ladrillo cerámico de alta densidad (~1,800 kg/m³), 18 huecos de 40 mm, resistencia a compresión ≥ 8 MPa, absorbción ≤ 15 %. Para muros portantes y divisiones internas.', 1.20, NULL, NULL, 498, 5, '/tercer_cielo/public/uploads/productos/691e5b8f65f9d_1763597199.jpg', 1),
 (25, 'Varilla de acero corrugado Ø 3/8″ (9 m)', 'Varilla de acero corrugado para refuerzo de hormigón, Ø 3/8″ (≈10 mm), módulo de elasticidad 200 GPa, adherencia según norma ACI. Longitud 9 m estándar.', 39.90, NULL, NULL, 200, 5, '/tercer_cielo/public/uploads/productos/691e5cc8730c3_1763597512.jpg', 1),
-(26, 'Arena Fina Seleccionada – m³', 'Arena fina lavada para mezcla de concreto y mortero, contenido de finos ≤ 10 %, libre de arcillas y materia orgánica. Ideal para tarrajeos y concretos de acabado.', 79.00, NULL, NULL, 36, 5, '/tercer_cielo/public/uploads/productos/691e56fa09e94_1763596026.jpg', 1),
+(26, 'Arena Fina Seleccionada – m³', 'Arena fina lavada para mezcla de concreto y mortero, contenido de finos ≤ 10 %, libre de arcillas y materia orgánica. Ideal para tarrajeos y concretos de acabado.', 79.00, NULL, NULL, 35, 5, '/tercer_cielo/public/uploads/productos/691e56fa09e94_1763596026.jpg', 1),
 (27, 'Yeso en polvo – Bolsa 25 kg', 'Yeso en polvo tipo hemihidratado, pureza ≥ 95 %, tiempo de fraguado ~25 min, retención de agua ~60%. Para enlucidos y molduras interiores.', 27.90, NULL, NULL, 35, 5, '/tercer_cielo/public/uploads/productos/691e5ce87c94e_1763597544.jpg', 1),
 (28, 'Malla electrosoldada 6 mm – panel 3×2 m', 'Malla electrosoldada de alambre Ø 6 mm, celda 150×150 mm, acero galvanizado Zn100 g/m², para refuerzo de losas y placas de concreto. Resistencia ≥ 550 MPa.', 189.00, NULL, NULL, 25, 5, '/tercer_cielo/public/uploads/productos/691e5baa2f567_1763597226.jpg', 1),
 (29, 'Clavos de acero 2″ – caja 1 kg', 'Clavos de acero templado tipo vestir, longitud 2″ (~50 mm), cabeza plana de 20 mm, punta diamantada, acabado electrocincado para resistencia a la corrosión. Uso en carpintería y estructuras de madera.', 5.90, NULL, NULL, 100, 5, '/tercer_cielo/public/uploads/productos/691e5b3aa4a4c_1763597114.jpg', 1),
 (30, 'Panel Drywall 1.20 × 2.40 m – espesor 12.5 mm', 'Panel de yeso laminado (drywall) estándar, dimensiones 1.20 m × 2.40 m, espesor 12.5 mm, núcleo yeso modificado, capa de papel específico. Para divisiones interiores y cielos rasos.', 49.90, NULL, NULL, 49, 5, '/tercer_cielo/public/uploads/productos/691e5c01d3048_1763597313.jpg', 1),
 (31, 'Clavos para concreto 1″ – caja 1 kg', 'Clavos para concreto, acero templado, longitud 1″ (~25 mm), punta de expansión, recubrimiento galvanizado, recomendados para fijar anclajes ligeros en hormigón.', 8.90, NULL, NULL, 76, 5, '/tercer_cielo/public/uploads/productos/691e5b56d59c0_1763597142.jpg', 1),
-(32, 'Carretilla de acero 90 L – rueda neumática', 'Carretilla de acero pintado, capacidad 90 litros, bandeja dimensional 780×430 mm, rueda neumática Ø 400 mm, altura de trabajo 950 mm. Ideal para transporte de materiales de obra.', 219.90, NULL, NULL, 6, 5, '/tercer_cielo/public/uploads/productos/691e575d39a4c_1763596125.jpg', 1);
+(32, 'Carretilla de acero 90 L – rueda neumática', 'Carretilla de acero pintado, capacidad 90 litros, bandeja dimensional 780×430 mm, rueda neumática Ø 400 mm, altura de trabajo 950 mm. Ideal para transporte de materiales de obra.', 219.90, NULL, NULL, 5, 5, '/tercer_cielo/public/uploads/productos/691e575d39a4c_1763596125.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -788,7 +793,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `telefono`, `password`, `rol`, `created_at`, `reset_token`, `reset_expires`, `activo`, `session_id`) VALUES
-(1, 'Admin Tercer Cielo', 'admin@tercercielo.com', '987654321', '$2y$10$jUngHrg9hHKjvEhye9X1XeKPUiHx.2La43fBK0n9ipwpe/5sEayim', 'admin', '2025-10-20 21:06:01', NULL, NULL, 1, '9mkinf4o898qstfo5qhrcati18'),
+(1, 'Admin Tercer Cielo', 'admin@tercercielo.com', '987654321', '$2y$10$jUngHrg9hHKjvEhye9X1XeKPUiHx.2La43fBK0n9ipwpe/5sEayim', 'admin', '2025-10-20 21:06:01', NULL, NULL, 1, NULL),
 (2, 'Cliente Test', 'cliente@test.com', '123456789', '$2y$10$Y24caBznFTVcCgY8g16V0OjmLVfF44Qgl3K8X.OJ93Wbp9ALTOlXa', 'cliente', '2025-11-20 04:16:02', NULL, NULL, 1, NULL),
 (95, 'Jeferson David Rueda Chumacero', 'jedarchdj@gmail.com', '966535611', '$2y$10$XA0a1mtHebiQWs/kM/aSMOCHl37jGmqdtbUYDR2Ev.X2U9sFmVDIa', 'cliente', '2025-10-29 21:58:51', 'c4b6e72c358101632b84573901e2aeffb82d04ac9a5729db0d70afa454b56bc0', '2025-11-17 05:01:31', 1, NULL),
 (101, 'jeferson rueda', 'jeferson.rueda2004@gmail.com', '966535611', '$2y$10$T1uWvDRPI2/FRF/4qHedzeb8GQtepjzOn8tX/yB7J.j8bwojHHJTi', 'cliente', '2025-10-30 14:31:52', NULL, NULL, 1, NULL),
@@ -897,7 +902,7 @@ ALTER TABLE `envios`
 -- AUTO_INCREMENT de la tabla `historial_pedidos`
 --
 ALTER TABLE `historial_pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
 
 --
 -- AUTO_INCREMENT de la tabla `movimientos_inventario`
@@ -909,13 +914,13 @@ ALTER TABLE `movimientos_inventario`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido_detalles`
 --
 ALTER TABLE `pedido_detalles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
